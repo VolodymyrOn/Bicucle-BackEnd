@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ asset('main.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="image/atb.png" type="image/png">
     <title>BikeShop</title>
@@ -13,9 +13,9 @@
         <h1>Веломагазин</h1>
     </header>
     <nav> 
-        <a href="index.blade.php">Каталог</a>
-        <a href="about-us.blade.php">Про нас</a>
-        <a href="comparison.blade.php">Порівняння</a>
+        <a href="/">Каталог</a>
+        <a href="/about-us">Про нас</a>
+        <a href="/comparison">Порівняння</a>
         <a class= "basket-button" href="/basket">
             <img class= "basket" src="image/basket2.png" alt="Корзина">
           </a>
