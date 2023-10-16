@@ -1,0 +1,51 @@
+/* Стилі для бокового меню (sidenav) */
+.sidenav {
+    width: 250px;
+    z-index: 1;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    border-radius: 10px; /* Круглі кути для фільтру */
+    margin: 5px; /* Відступ справа для фільтру */
+    padding: 5px; /* Внутрішні відступи для фільтру */
+    flex-shrink: 0; /* Фільтр не зменшується при зменшенні вікна */
+}
+
+.sidebar {
+    padding: 20px;
+    color: #fff;
+}
+
+
+
+/* Стилі для бокового бару (sidebar) */
+.sidebar {
+    padding: 20px;
+    color: #fff;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+select, button {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+/* Стилі для форми фільтра */
+#filterForm {
+    display: flex;
+    flex-direction: column;
+}

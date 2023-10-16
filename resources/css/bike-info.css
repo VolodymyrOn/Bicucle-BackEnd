@@ -1,0 +1,83 @@
+.info-box {
+    color: #fff;
+    width: auto;
+    padding: 20px;
+    background-color: #444; /* Змінити колір фону контейнера */
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Загальні стилі для карточок */
+.bike-card {
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі по центру */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Мінімальна ширина для карточки */
+    height: 220px;
+    box-sizing: border-box; /* Ураховує відступи в обчисленні ширини */
+    justify-content: space-between; /* Розміщення контенту по обидва боки */
+}
+/* Стилі для зображень велосипедів */
+.bike-card img {
+    border-radius: 5px;
+    max-width: 20%;
+    height: auto;
+    margin-left: 10px; /* Відступ зліва від картинки */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 2);
+}
+/* Стилі для заголовків велосипедів */
+.bike-card h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Стилі для опису велосипедів */
+.bike-card p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Стилі для ціни велосипедів */
+.bike-card p:last-child {
+    font-weight: bold;
+    color: #ff6600;
+}
+
+.button-container button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin-bottom: 5px;
+}
+.bike-card button:hover {
+    background-color: #d84800;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.bike-info {
+    width: 400px;
+    align-items: center;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
