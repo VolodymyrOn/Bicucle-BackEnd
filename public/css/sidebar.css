@@ -1,6 +1,6 @@
 /* Стилі для бокового меню (sidenav) */
 .sidenav {
-    width: 250px;
+    width: 300px;
     z-index: 1;
     background-color: #333;
     overflow-x: hidden;
@@ -43,7 +43,6 @@ select, button {
     background-color: #444;
     color: #fff;
 }
-
 /* Стилі для форми фільтра */
 #filterForm {
     display: flex;

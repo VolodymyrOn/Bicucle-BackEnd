@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="image/atb.png" type="image/png">
     <title>BikeShop</title>
@@ -16,10 +15,16 @@
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
-        <a class= "basket-button" href="/basket">
-            <img class= "basket" src="image/basket2.png" alt="Корзина">
-          </a>
+        <a class="basket-button" href="/basket" id="basket-link">
+            <img class="basket" src="image/basket2.png" alt="Корзина">
+        </a>
+        <div id="cart-count-container" class="cart-count-container">
+            <span id="cart-count" class="cart-count">0</span>
+        </div>
     </nav>
+    <div id="notification" class="notification">
+        Товар додано до корзини
+    </div>
     <div class="container">
         <aside class="sidenav">
             <div class="sidebar">
@@ -54,6 +59,20 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
+            <a href="/characteristics">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
             <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
@@ -66,7 +85,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -78,7 +97,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -90,7 +109,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -102,7 +121,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -114,7 +133,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -126,7 +145,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -138,7 +157,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -150,7 +169,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -162,7 +181,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -174,7 +193,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -186,7 +205,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -198,7 +217,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -210,7 +229,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -222,7 +241,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -234,7 +253,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -246,19 +265,7 @@
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
                 <p>Ціна: $500</p>
             </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
-            <div class="button-container">
-                <button>Купити</button>
-                <button>До порівняння</button>
-            </div>
-        </div>
-        <div class="bike-card">
-            <div class="bike-info">
-                <h2>Велосипед 1</h2>
-                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
-                <p>Ціна: $500</p>
-            </div>
-            <img src="vibor_rami_11.jpg" alt="Велосипед 1">
+            <imgimage/vibor_rami_11.jpg" alt="Велосипед 1">
             <div class="button-container">
                 <button>Купити</button>
                 <button>До порівняння</button>
@@ -269,6 +276,6 @@
     <footer>
         <p>&copy; 2023</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="scripts/basket.js"></script>
 </body>
 </html>

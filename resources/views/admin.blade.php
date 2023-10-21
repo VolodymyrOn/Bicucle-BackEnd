@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles/Authorization.css">
+    <link rel="stylesheet" type="text/css" href="css/Authorization.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сторінка авторизації</title>
 </head>
@@ -18,7 +18,7 @@
                 <label for="password">Пароль:</label>
                 <div class="password-input">
                     <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
-                    <span class="toggle-password">👁️</span>
+                    <span class="toggle-password">👁</span>
                 </div>
             </div>
             <div class="button">

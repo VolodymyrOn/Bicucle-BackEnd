@@ -25,3 +25,7 @@ Route::get('/admin', function () {
 Route::get('/administrator', function () {
     return view('administrator');
 });
+
+Route::get('/characteristics', function () {
+    return view('characteristics');
+});

@@ -2,32 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="image/atb.png" type="image/png">
-    <title>about-us</title>
+    <title>Про нас</title>
 </head>
 <body>
     <header>
-        <h1>Веломагазин</h1>
+        <h1>Про нас</h1>
     </header>
     <nav> 
-        <a href="avtobiogr.html">Головна</a>
-        <a href="hobby.html">Каталог</a>
-        <a href="spisok.html">Про нас</a>
+        <a href="/">Каталог</a>
+        <a href="/about-us">Про нас</a>
+        <a href="/comparison">Порівняння</a>
     </nav>
     <main class="main">
-        <div class="bike-card">
-            Наша адреса офісу: .....<br>
-
-            Номер телефону адміністраторів:<br>
-            Адмін 1 ..........<br>
-            Адмін 2 ...........<br>
-            Адмін 3 ...........<br>
-            
+        <div class="about-us">
+            Наша адреса офісу: м.Коломия вул.Тарабалки 20<br><br><br>
+            Номер телефону менеджера:<br>
+            Онищук В.І.: +380672505390<br><br><br>
             Електрона пошта для зв’язку:<br>
-            qwerty@qwetryy.com<br>
-            </div>
+            qwerty123@gmail.com<br>
         </div>
     </main>
     <footer>

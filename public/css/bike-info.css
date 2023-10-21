@@ -26,7 +26,7 @@
 /* Стилі для зображень велосипедів */
 .bike-card img {
     border-radius: 5px;
-    max-width: 20%;
+    max-width: 300px;
     height: auto;
     margin-left: 10px; /* Відступ зліва від картинки */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 2);
@@ -81,3 +81,33 @@
     display: flex;
     justify-content: space-between;
 }
+
+button {
+    cursor: pointer;
+    background-color: #ff6600;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff5500;
+}
+
+.about-us {
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Змінюємо напрямок відображення на вертикальний */
+    text-align: center;
+    align-items: center; /* Вирівнювання по центру по вертикалі */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Мінімальна ширина для карточки */
+    height: 220px;
+    box-sizing: border-box; /* Ураховує відступи в обчисленні ширини */
+    justify-content: center; /* Вирівнювання тексту по центру по горизонталі */
+}
+
+
