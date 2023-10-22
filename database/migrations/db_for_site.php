@@ -25,7 +25,7 @@ return new class extends Migration
 
         Schema::create('Characteristics', function (Blueprint $table) {
             $table->id();
-            $table->int('Velo_id');
+            $table->text('Velo_id');
             $table->text('Wheel diameter');
             $table->text('Cassette');
             $table->text('Shifters');
@@ -53,6 +53,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('personal_access_tokens','Characteristics','Bicucles');
     }
 };
