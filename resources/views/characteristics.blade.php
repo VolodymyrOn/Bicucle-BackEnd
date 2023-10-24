@@ -35,87 +35,95 @@
             </div>
         </div>
         <div class="bike-description">
-            <h3>Характеристики велосипеду:</h3>
+        <?php
+        $db=mysqli_connect("localhost","root","","laravel");
+        $query="SELECT * from characteristics where Velo_id='$_GET[id]'";
+        $db_res=mysqli_query($db, $query);
+        $res=mysqli_fetch_assoc($db_res); ?>
+
+            <h3>Характеристики велосипеда:</h3>
             <table>
                 <tr>
                     <td>Діаметр колеса:</td>
-                    <td>27,5"</td>
+                    <td>
+                        <?php echo $res['Wheel diameter']; ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Касета:</td>
-                    <td>Shimano HG41, 11-31, 8-шв</td>
+                    <td><?php echo $res['Cassette']; ?></td>
                 </tr>
                 <tr>
                     <td>Ручки перемикання:</td>
-                    <td>Shimano Easy Fire EF505, 2x8</td>
+                    <td><?php echo $res['Shifters']; ?></td>
                 </tr>
                 <tr>
                     <td>Обода:</td>
-                    <td>Cannondale, двостінні, 32 спиці</td>
+                    <td><?php echo $res['Rim']; ?></td>
                 </tr>
                 <tr>
                     <td>Педалі:</td>
-                    <td>Cannondale Urban Pedal</td>
+                    <td><?php echo $res['Pedals']; ?></td>
                 </tr>
                 <tr>
                     <td>Передні гальма:</td>
-                    <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
+                    <td><?php echo $res['Front brakes']; ?></td>
                 </tr>
                 <tr>
                     <td>Передній перемикач:</td>
-                    <td>Shimano Tourney, хомут 31.8</td>
+                    <td><?php echo $res['Front derailleur']; ?></td>
                 </tr>
                 <tr>
                     <td>Покришки:</td>
-                    <td>WTB Byway, 650b x 40c</td>
+                    <td><?php echo $res['Tires']; ?></td>
                 </tr>
                 <tr>
                     <td>Рама:</td>
-                    <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
+                    <td><?php echo $res['Frame']; ?></td>
                 </tr>
                 <tr>
                     <td>Рульова колонка:</td>
-                    <td>Напівінтегрована</td>
+                    <td><?php echo $res['Steering column']; ?></td>
                 </tr>
                 <tr>
                     <td>Гальмівні ручки:</td>
-                    <td>Shimano MT200 гідравлічні</td>
+                    <td><?php echo $res['Brake levers']; ?></td>
                 </tr>
                 <tr>
                     <td>Кермо:</td>
-                    <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
+                    <td><?php echo $res['Handlebar']; ?></td>
                 </tr>
                 <tr>
                     <td>Сідло:</td>
-                    <td>Cannondale Urban</td>
+                    <td><?php echo $res['Saddle']; ?></td>
                 </tr>
                 <tr>
                     <td>Підсідельний штир:</td>
-                    <td>Алюміній, 31.6 x 350мм</td>
+                    <td><?php echo $res['Seatpost']; ?></td>
                 </tr>
                 <tr>
                     <td>Шатуни:</td>
-                    <td>Shimano, 46/30</td>
+                    <td><?php echo $res['Cranks']; ?></td>
                 </tr>
                 <tr>
                     <td>Вилка:</td>
-                    <td>Lefty, тверда, шток 1-1/8"</td>
+                    <td><?php echo $res['Fork']; ?></td>
                 </tr>
                 <tr>
                     <td>Втулки:</td>
-                    <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
+                    <td><?php echo $res['Bushes']; ?></td>
                 </tr>
                 <tr>
                     <td>Винос:</td>
-                    <td>Алюміній 6061, 31.8, 60мм</td>
+                    <td><?php echo $res['Bearing']; ?></td>
                 </tr>
                 <tr>
                     <td>Задні гальма:</td>
-                    <td>MTB linear pull</td>
+                    <td><?php echo $res['Rear brakes']; ?></td>
                 </tr>
                 <tr>
                     <td>Задній перемикач:</td>
-                    <td>Shimano Tourney</td>
+                    <td><?php echo $res['Rear derailleur']; ?></td>
                 </tr>
             </table>
         </div>
