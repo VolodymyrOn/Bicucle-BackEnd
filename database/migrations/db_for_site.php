@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('Bicucles', function (Blueprint $table) {
             $table->id();
-            $table->string('Marka');
-            $table->string('Model');
-            $table->string('Color');
-            $table->string('Type');
-            $table->string('Tires');
-            $table->string('Size');
-            $table->string('Type_of_rear_bushing');
+            $table->text('Marka');
+            $table->text('Model');
+            $table->text('Color');
+            $table->text('Type');
+            $table->text('Tires');
+            $table->text('Size');
+            $table->text('Type_of_rear_bushing');
+            $table->float('Price');
             $table->timestamps();
         });
 
@@ -36,8 +37,10 @@ return new class extends Migration
             $table->text('Tires');
             $table->text('Frame');
             $table->text('Steering column');
+            $table->text('Brake levers');
             $table->text('Handlebar');
             $table->text('Saddle');
+            $table->text('Seatpost');
             $table->text('Cranks');
             $table->text('Fork');
             $table->text('Bushes');
@@ -45,6 +48,15 @@ return new class extends Migration
             $table->text('Rear brakes');
             $table->text('Rear derailleur');
             $table->timestamps();
+
+
+
+            Schema::create('Orders', function (Blueprint $table) {
+                $table->id();
+                $table->text('Velo_id');
+                $table->float('Total_price');
+                $table->timestamps();
+            });
         });
     }
 
@@ -53,6 +65,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens','Characteristics','Bicucles');
+        Schema::dropIfExists('Characteristics','Bicucles', 'Orders');
     }
 };

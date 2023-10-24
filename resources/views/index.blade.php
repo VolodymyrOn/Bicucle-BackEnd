@@ -53,7 +53,27 @@
             </div>
         </aside>
     <main class="main">
-        <div class="bike-card">
+        <?php
+        $db=mysqli_connect("localhost","root","","laravel");
+        $query="SELECT * from bicucles";
+        $db_res=mysqli_query($db, $query);
+        $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC);
+        foreach($res as $bike){
+            echo "<div class='bike-card'>";
+            echo "<div class='bike-info'>";
+            echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
+            echo " <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p> <p>Ціна:".$bike['Price']."$</p> </div>"; 
+            echo " <a href='/characteristics?id=".$bike['id']."'>";
+            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a> <div class='button-container'> <button>Купити</button>";
+            echo " <button>До порівняння</button> </div> </div>";
+        }
+           
+
+    ?>
+
+
+
+    <div class="bike-card">
             <div class="bike-info">
                 <h2>Велосипед 1</h2>
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
@@ -67,6 +87,9 @@
                 <button>До порівняння</button>
             </div>
         </div>
+
+
+
         <div class="bike-card">
             <div class="bike-info">
                 <h2>Велосипед 1</h2>
