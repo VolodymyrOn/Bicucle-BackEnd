@@ -7,21 +7,73 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
     box-sizing: border-box;
+    color: #fff;
 }
 
 .bike-description h3 {
     font-size: 20px;
+    margin: 0 0 10px;
+}
+
+table {
+    width: 100%;
+}
+
+table tr {
+    background-color: #333;
+}
+
+table tr td {
+    padding: 8px;
+    border: 1px solid #555;
+}
+
+table tr td:first-child {
+    font-weight: bold;
+}
+
+.offers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.offers h3 {
+    width: 100%;
+    
+}
+
+.bike-card-offers {
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    max-width: 100%; /* Робить карточки адаптивними */
+    margin: 10px; /* Розділювальна відстань між карточками */
+    
+    /* Змініть розмір карточок, наприклад, 300px: */
+    width: 300px;
+}
+
+.bike-card-offers img {
+    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
     margin: 10px 0;
-    color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
-.bike-description ul {
-    list-style-type: none;
-    padding: 0;
-}
 
-.bike-description li {
+.bike-card-offers p {
     font-size: 16px;
-    margin: 5px 0;
-    color: #fff;
+    margin: 10px 0;
+}
+
+.bike-card-offers p:last-child {
+    font-weight: bold;
+    color: #ff6600;
 }

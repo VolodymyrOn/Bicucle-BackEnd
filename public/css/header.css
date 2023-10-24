@@ -1,16 +1,32 @@
 header {
-    background-color: #111; /* Змінити колір фону заголовка */
+    background-color: #111;
     color: #fff;
     padding: 5px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+header img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header h1 {
+    -webkit-text-stroke: 2px #b36908; /* Товщина обводки та колір */
+    color: #fff; /* Колір тексту */
 }
 
 nav {
-    background-color: #333; /* Змінити колір фону навігації */
+    background-color: #333;
     color: #fff;
     padding: 5px;
     display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 nav a {
@@ -23,5 +39,5 @@ nav a {
 
 nav a:hover {
     background-color: #fff;
-    color: #333; /* Змінити колір тексту при наведенні */
+    color: #333;
 }

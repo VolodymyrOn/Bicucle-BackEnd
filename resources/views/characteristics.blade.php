@@ -13,7 +13,7 @@
     </header>
     <nav> 
         <a href="/">Каталог</a>
-        <a href="/about-us.">Про нас</a>
+        <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
         <a class= "basket-button" href="/basket">
             <img class= "basket" src="image/basket2.png" alt="Корзина">
@@ -118,6 +118,39 @@
                     <td>Shimano Tourney</td>
                 </tr>
             </table>
+        </div>
+        <div class="offers">
+            <h3>Інші пропозиції:</h3>
+            <div class="bike-card-offers">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <h2>Велосипед 1</h2>
+                <h4>опис</h4>
+                <p>Ціна: $500</p>
+            </div>
+            <div class="bike-card-offers">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <h2>Велосипед 1</h2>
+                <h4>опис</h4>
+                <p>Ціна: $500</p>
+            </div>
+            <div class="bike-card-offers">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <h2>Велосипед 1</h2>
+                <h4>опис</h4>
+                <p>Ціна: $500</p>
+            </div>
+            <div class="bike-card-offers">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <h2>Велосипед 1</h2>
+                <h4>опис</h4>
+                <p>Ціна: $500</p>
+            </div>
+            <div class="bike-card-offers">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <h2>Велосипед 1</h2>
+                <h4>опис</h4>
+                <p>Ціна: $500</p>
+            </div>
         </div>
     </main>
     <footer>

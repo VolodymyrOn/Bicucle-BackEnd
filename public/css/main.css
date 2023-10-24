@@ -4,6 +4,8 @@
 @import "scrollbar.css";
 @import "sidebar.css";
 @import "basket.css";
+@import "characteristics.css";
+@import "comparison.css";
 
 body {
     font-family: Arial, sans-serif;

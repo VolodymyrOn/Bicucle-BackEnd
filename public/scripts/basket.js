@@ -27,3 +27,4 @@ function addToCart() {
 // Додати обробку натискання кнопки "Купити"
 var buyButton = document.querySelector('.bike-card button:first-of-type');
 buyButton.addEventListener('click', addToCart);
+
