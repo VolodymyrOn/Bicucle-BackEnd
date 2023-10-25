@@ -1,3 +1,7 @@
+<?php 
+include(public_path().'\func.php');
+if(isset($_GET['id'])){ addToCart($_GET['id']); }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +24,7 @@
             <img class="basket" src="image/basket2.png" alt="Корзина">
         </a>
         <div id="cart-count-container" class="cart-count-container">
-            <span id="cart-count" class="cart-count">0</span>
+            <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
         </div>
     </nav>
     <div id="notification" class="notification">
@@ -61,95 +65,8 @@
                         <option value="Cannondale Urban Pedal">Cannondale Urban Pedal</option>
                     </select>
         
-                    <label for="frontBrakes">Передні гальма:</label>
-                    <select id="frontBrakes" name="frontBrakes">
-                        <option value="">Виберіть передні гальма</option>
-                        <option value="Гідравлічний дисковий Shimano MT200, ротор RT26 160мм">Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</option>
-                    </select>
         
-                    <label for="frontDerailleur">Передній перемикач:</label>
-                    <select id="frontDerailleur" name="frontDerailleur">
-                        <option value="">Виберіть передній перемикач</option>
-                        <option value="Shimano Tourney, хомут 31.8">Shimano Tourney, хомут 31.8</option>
-                    </select>
-        
-                    <label for="tires">Покришки:</label>
-                    <select id="tires" name="tires">
-                        <option value="">Виберіть покришки</option>
-                        <option value="WTB Byway, 650b x 40c">WTB Byway, 650b x 40c</option>
-                    </select>
-        
-                    <label for="frame">Рама:</label>
-                    <select id="frame" name="frame">
-                        <option value="">Виберіть раму</option>
-                        <option value="Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8\"">Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</option>
-                    </select>
-        
-                    <label for="headset">Рульова колонка:</label>
-                    <select id="headset" name="headset">
-                        <option value="">Виберіть рульову колонку</option>
-                        <option value="Напівінтегрована">Напівінтегрована</option>
-                    </select>
-        
-                    <label for="brakeLevers">Гальмівні ручки:</label>
-                    <select id="brakeLevers" name="brakeLevers">
-                        <option value="">Виберіть гальмівні ручки</option>
-                        <option value="Shimano MT200 гідравлічні">Shimano MT200 гідравлічні</option>
-                    </select>
-        
-                    <label for="handlebar">Кермо:</label>
-                    <select id="handlebar" name="handlebar">
-                        <option value="">Виберіть кермо</option>
-                        <option value="Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм">Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</option>
-                    </select>
-        
-                    <label for="saddle">Сідло:</label>
-                    <select id="saddle" name="saddle">
-                        <option value="">Виберіть сідло</option>
-                        <option value="Cannondale Urban">Cannondale Urban</option>
-                    </select>
-        
-                    <label for="seatpost">Підсідельний штир:</label>
-                    <select id="seatpost" name="seatpost">
-                        <option value="">Виберіть підсідельний штир</option>
-                        <option value="Алюміній, 31.6 x 350мм">Алюміній, 31.6 x 350мм</option>
-                    </select>
-        
-                    <label for="crankset">Шатуни:</label>
-                    <select id="crankset" name="crankset">
-                        <option value="">Виберіть шатуни</option>
-                        <option value="Shimano, 46/30">Shimano, 46/30</option>
-                    </select>
-        
-                    <label for="fork">Вилка:</label>
-                    <select id="fork" name="fork">
-                        <option value="">Виберіть вилку</option>
-                        <option value="Lefty, тверда, шток 1-1/8\"">Lefty, тверда, шток 1-1/8"</option>
-                    </select>
-        
-                    <label for="hubs">Втулки:</label>
-                    <select id="hubs" name="hubs">
-                        <option value="">Виберіть втулки</option>
-                        <option value="Lefty 50 – передня; Formula DC-1422 QR - ззаду">Lefty 50 – передня; Formula DC-1422 QR - ззаду</option>
-                    </select>
-        
-                    <label for="stem">Винос:</label>
-                    <select id="stem" name="stem">
-                        <option value="">Виберіть винос</option>
-                        <option value="Алюміній 6061, 31.8, 60мм">Алюміній 6061, 31.8, 60мм</option>
-                    </select>
-        
-                    <label for="rearBrakes">Задні гальма:</label>
-                    <select id="rearBrakes" name="rearBrakes">
-                        <option value="">Виберіть задні гальма</option>
-                        <option value="MTB linear pull">MTB linear pull</option>
-                    </select>
-        
-                    <label for="rearDerailleur">Задній перемикач:</label>
-                    <select id="rearDerailleur" name="rearDerailleur">
-                        <option value="">Виберіть задній перемикач</option>
-                        <option value="Shimano Tourney">Shimano Tourney</option>
-                    </select>
+                  
         
                     <button type="submit">Фільтрувати</button>
                 </form>
@@ -157,7 +74,6 @@
         </aside>
     <main class="main">
         <?php
-        $db=mysqli_connect("localhost","root","","laravel");
         $query="SELECT * from bicucles";
         $db_res=mysqli_query($db, $query);
         $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC);
@@ -167,7 +83,7 @@
             echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
             echo " <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p> <p>Ціна:".$bike['Price']."$</p> </div>"; 
             echo " <a href='/characteristics?id=".$bike['id']."'>";
-            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a> <div class='button-container'> <button>Купити</button>";
+            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a> <div class='button-container'><a href='/?id=".$bike['id']."'> <button>Купити</button> </a>";
             echo " <button>До порівняння</button> </div> </div>";
         }
            
@@ -179,6 +95,6 @@
     <footer>
         <p>&copy; 2023</p>
     </footer>
-    <script src="scripts/basket.js"></script>
+    <script src="scripts/basket.js"></script> 
 </body>
 </html>

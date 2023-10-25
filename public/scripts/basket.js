@@ -11,14 +11,7 @@ function showNotification(message) {
 // Функція для обробки натискання кнопки "Купити"
 function addToCart() {
     // Отримати поточну кількість товарів в корзині
-    var cartCountElement = document.getElementById("cart-count");
-    var cartCount = parseInt(cartCountElement.textContent);
 
-    // Збільшити кількість товарів в корзині на 1
-    cartCount += 1;
-
-    // Оновити відображення кількості товарів у корзині
-    cartCountElement.textContent = cartCount;
 
     // Вивести повідомлення про додавання товару до корзини
     showNotification("Товар додано до корзини");
