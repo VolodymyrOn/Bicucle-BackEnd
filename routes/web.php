@@ -14,7 +14,7 @@ Route::any('/basket', function () {
     return view('basket');
 });
 
-Route::get('/comparison', function () {
+Route::any('/comparison', function () {
     return view('comparison');
 });
 
@@ -26,7 +26,7 @@ Route::get('/administrator', function () {
     return view('administrator');
 });
 
-Route::get('/characteristics', function () {
+Route::any('/characteristics', function () {
     return view('characteristics');
 });
 

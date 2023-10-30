@@ -1,3 +1,7 @@
+<?php 
+include(public_path().'\func.php');
+if(isset($_GET['id'])){ addToCart($_GET['id']); }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,31 +16,46 @@
         <h1>Характеристики велосипеда</h1>
     </header>
     <nav> 
+    <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
-        <a class= "basket-button" href="/basket">
-            <img class= "basket" src="image/basket2.png" alt="Корзина">
+    </div>
+    <div class="nav-right">
+        <a class="basket-button" href="/basket" id="basket-link">
+            <img class="basket" src="image/basket2.png" alt="Корзина">
         </a>
         <div id="cart-count-container" class="cart-count-container">
-            <span id="cart-count" class="cart-count">0</span>
+            <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
+        </div>
         </div>
     </nav>
     <main class="main">
-        <div class="bike-card">
-            <div class="bike-info">
-                <h2>Cannondale Bad Boy 3 (2022) BBQ</h2>
-                <p>Ціна: $500</p>
-            </div>
-            <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-            <div class="button-container">
-                <button>Купити</button>
-                <button>До порівняння</button>
-            </div>
-        </div>
+
+        <?php
+        $id=$_GET['id'];
+        $query="SELECT * from bicucles where id='$id'";
+        $db_res=mysqli_query($db, $query);
+        $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC);
+        foreach($res as $bike){
+            echo "<div class='bike-card'>";
+            echo "<div class='bike-info'>";
+            echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
+            echo "<p>Ціна: ".$bike['Price']."$</p> </div>"; 
+            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'>  <div class='button-container-index'> ";
+            echo "<div class='button-container-index'>";
+            echo "<form style='margin: 0' method='POST'>";?>
+            {{method_field('post')}} 
+            @csrf
+           <?php echo "<button type='submit' value='submit' name='submit'>Купити</button> </form> </div>";
+
+                        echo " <button>До порівняння</button> </div>  </div>";
+        }
+           ?>
+
+
         <div class="bike-description">
         <?php
-        $db=mysqli_connect("localhost","root","","laravel");
         $query="SELECT * from characteristics where Velo_id='$_GET[id]'";
         $db_res=mysqli_query($db, $query);
         $res=mysqli_fetch_assoc($db_res); ?>

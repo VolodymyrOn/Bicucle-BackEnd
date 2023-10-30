@@ -1,109 +1,4 @@
- <?php
-    /*    $query="SELECT * from Pizza";
-        $link=mysqli_connect("localhost","root","","orgesta");
-        $db_res=mysqli_query($link, $query);
-        $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC);
-        $i=0;
-        foreach($res as $pizza){
-            if($i==4) $i=0;
-            if($i==0) echo "<div class='product-line'>";
-            echo "<div class='product-box'> <div class='product-image'> <img src='".$pizza['Img']."' alt='Знак'></div>";
-            echo "<h3>".$pizza['Name']."</h3> <a href='./menu.php?id=".$pizza['ID']."'>Додати в кошик</a>  <p>Ціна: ".$pizza['Price']." грн.</p>  </div>";
-            $i++;
-            if($i==4) echo "</div>";
-        }
-        <?php
-    include 'DB_open.php';
-    include 'func.php';
-    if (isset($_GET['id'])) {
-        if ($_GET['oper'] == '-') {
-        removeFromCart($_GET['id']);
-    }
-    elseif ($_GET['oper'] == '+') {
-        addToCart($_GET['id']);
-       
-    }
-    header("Location: koshyk.php");
-}
-    if(isset($_POST['submit'])){
-        unset($_SESSION['cart']);
-        header('Location: menu.php');
-        exit();
-        }
-    if(isset($_SESSION['cart'])){
-    if(isset($_POST['submitdb'])){
-        $arr="";
-        $tot_price=0;
-        foreach($_SESSION['cart'] as $elem){
-         $query = "SELECT Name, Price FROM pizza WHERE ID = " . $elem['id'];
-        $res=mysqli_query($link, $query);
-        $res=mysqli_fetch_assoc($res);
-        $arr = $arr . " " . $res['Name'] . ":" . $elem['quantity'] . " ";
-        $tot_price+=$elem['quantity']*$res['Price'];
-        }
-        $query="INSERT INTO orders(Pizza, Tot_price) VALUES ('".$arr."',".$tot_price.");";
-        mysqli_query($link, $query);
-        $lastInsertedId = mysqli_insert_id($link);
-        unset($_SESSION['cart']);
-    }}
-?>
-
-    <section class="content">
-    <?php
-        if(isset($_SESSION['cart'])){
-        $total=0;
-        echo "<div>";
-        echo "<table>";
-        echo "<tr>";
-        echo "<th style='width: 25%;'>Назва</th>";
-        echo "<th style='width: 25%;'>Вартість</th>";
-        echo "<th style='width: 25%;'>Кількість</th>";
-        echo "<th style='width: 25%;'></th>"; 
-        echo "</tr>";
-     
-        foreach ($_SESSION['cart'] as $elem) {
-            $query = "SELECT Name, Price FROM pizza WHERE ID = " . $elem['id'];
-            $res=mysqli_query($link, $query);
-            $res=mysqli_fetch_assoc($res);
-            $price=$elem['quantity']*$res['Price'];
-            $total+=$price;
-            echo "<tr>";
-            echo "<td>".$res['Name']."</td>";
-            echo "<td>".$res['Price']."</td>";
-            echo "<td>";
-            echo "<a href='./koshyk.php?id=".$elem['id']."&oper=-'>-</a>"."\t\t\t";
-            echo   $elem['quantity'];
-            echo "<a href='./koshyk.php?id=".$elem['id']."&oper=%2B'>+</a>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        echo "</div>";
-        echo "<p style='text-align: center;'>Сума: ".$total." грн."."</p>";
-        echo "<form style='text-align: center;' action='' method='post'>";
-        echo "<input type='submit' name='submit' value='Очистити кошик'>";
-        echo "<input type='submit' name='submitdb' value='Замовити'>";
-        echo "</form>";
-    }
-        else 
-             if(isset($_POST['submitdb'])){ echo "<p style='text-align: center;'>Ваше замовлення під номером: ".$lastInsertedId."</p>";
-         echo "<p style='text-align: center;'>".$arr."</p>";
-            echo "<p style='text-align: center;'>Зателефонуйте за номером: +380 98 678 89 09 і скажіть номер замовлення та вашу адресу</p>";
-            }
-            else{
-            echo "<p style='text-align: center;'>Кошик порожній</p>";
-            }
-    ?>
-
-      </section>
-</body>
-</html>
-        
-        */
-      ?> 
-
-
 <?php
- 
         include(public_path().'\func.php');
        
         if(isset($_POST['submit'])){
@@ -116,19 +11,19 @@
         if (isset($_GET['id'])) {
             if ($_GET['oper'] == '-') {
             removeFromCart($_GET['id']);
+            echo "<script>location.href='/basket';</script>";
         }
         elseif ($_GET['oper'] == '+') {
             addToCart($_GET['id']);    
+            echo "<script>location.href='/basket';</script>";
         }
         header("Location: koshyk.php");
     }
         $query="SELECT * from bicucles";
         $db_res=mysqli_query($db, $query);
         $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC); 
-        if(isset($_SESSION['cart']))
-        var_dump($_SESSION['cart']);
-        var_dump($_REQUEST);
-        var_dump($_POST);
+
+
         ?>
 
 <!DOCTYPE html>
@@ -143,15 +38,19 @@
     <h1>Корзина</h1>
 </header>
 <nav> 
+<div class="nav-center">
     <a href="/">Каталог</a>
     <a href="/about-us">Про нас</a>
     <a href="/comparison">Порівняння</a>
+</div>
+    <div class="nav-right">
     <a class="basket-button" href="/basket" id="basket-link">
         <img class="basket" src="image/basket2.png" alt="Корзина">
     </a>
     <div id="cart-count-container" class="cart-count-container">
         <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
     </div>
+</div>
 </nav>
 
 
@@ -183,9 +82,16 @@
                     echo "<div class='quantity-container-order'>";
                     echo "<div class='quantity-controls-order'>";
                     echo "<label for='quantity'>Кількість товару:</label>";
+
+                    echo "<a href='/basket?id=".$elem['id']."&oper=-'><button class='decrement'>-</button></a>";
+                    echo   $elem['quantity'];
+                    echo "<a href='/basket?id=".$elem['id']."&oper=%2B'><button class='increment'>+</button></a>";
+                    /*
                     echo "<button class='decrement' onclick='decrementQuantity()'>-</button>";
                     echo "<input type='number' id='quantity' name='quantity' min='1' value='1'>";
                     echo "<button class='increment' onclick='incrementQuantity()'>+</button>";
+                    */
+
                     echo "</div> </div> </div>";
                 }
 
@@ -202,7 +108,7 @@
                     echo "<form style='margin: 0' method='POST'>";?>
                     {{method_field('post')}} 
                     @csrf
-                   <?php echo "<button type='submit' value='submit' name='submit'>Очистити корзину</button> </form> </div>";
+                   <?php if(isset($_SESSION['cart'])) echo "<button type='submit' value='submit' name='submit'>Очистити корзину</button> </form> </div>";
             ?>
 
    <!--

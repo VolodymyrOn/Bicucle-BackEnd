@@ -25,14 +25,3 @@ body {
     justify-content: flex-start; /* Карточки розташовуються зліва */
     flex-grow: 1; /* Карточки займають весь доступний простір в main */
 }
-
-button {
-    cursor: pointer;
-    background-color: #ff6600;
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ff5500;
-}

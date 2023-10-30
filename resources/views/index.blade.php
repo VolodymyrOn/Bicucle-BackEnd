@@ -18,14 +18,18 @@ if(isset($_GET['id'])){ addToCart($_GET['id']); echo "<script>location.href='/';
         <h1>BikeShop</h1>
     </header>
     <nav> 
+    <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+    </div>
+    <div class="nav-right">
         <a class="basket-button" href="/basket" id="basket-link">
             <img class="basket" src="image/basket2.png" alt="Корзина">
         </a>
         <div id="cart-count-container" class="cart-count-container">
             <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
+        </div>
         </div>
     </nav>
     <div id="notification" class="notification">

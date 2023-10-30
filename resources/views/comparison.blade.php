@@ -1,3 +1,6 @@
+<?php 
+include(public_path().'\func.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +15,18 @@
         <h1>Порівняння</h1>
     </header>
     <nav> 
+    <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+    </div>
+    <div class="nav-right">
         <a class="basket-button" href="/basket" id="basket-link">
             <img class="basket" src="image/basket2.png" alt="Корзина">
         </a>
         <div id="cart-count-container" class="cart-count-container">
-            <span id="cart-count" class="cart-count">0</span>
+            <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
+        </div>
         </div>
     </nav>
     <main class="main">
