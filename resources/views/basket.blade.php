@@ -106,6 +106,12 @@
  
         include(public_path().'\func.php');
        
+        if(isset($_POST['submit'])){
+            unset($_SESSION['Basket']);
+            unset($_SESSION['cart']);
+            echo "<script>location.href='/basket';</script>";
+            exit();
+            }
        
         if (isset($_GET['id'])) {
             if ($_GET['oper'] == '-') {
@@ -119,7 +125,10 @@
         $query="SELECT * from bicucles";
         $db_res=mysqli_query($db, $query);
         $res=mysqli_fetch_all($db_res, MYSQLI_ASSOC); 
+        if(isset($_SESSION['cart']))
         var_dump($_SESSION['cart']);
+        var_dump($_REQUEST);
+        var_dump($_POST);
         ?>
 
 <!DOCTYPE html>
@@ -141,7 +150,7 @@
         <img class="basket" src="image/basket2.png" alt="Корзина">
     </a>
     <div id="cart-count-container" class="cart-count-container">
-        <span id="cart-count" class="cart-count">0</span>
+        <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
     </div>
 </nav>
 
@@ -157,7 +166,47 @@
 
          -->
          <main class="main">
-    <div class="bike-card">
+         {{method_field('post')}} 
+         @csrf
+        <?php
+            if(isset($_SESSION['cart'])){
+                foreach($_SESSION['cart'] as $elem){
+                    $query = "SELECT * FROM bicucles WHERE ID = " . $elem['id'];
+                    $res=mysqli_query($db, $query);
+                    $bike=mysqli_fetch_assoc($res);
+                    echo "<div class='bike-card'>";
+                    echo " <a href='/characteristics?id=".$bike['id']."'>";
+                    echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a>";
+                    echo "<div class='bike-info-order'>";
+                    echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
+                    echo " <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p> <p>Ціна:".$bike['Price']."$</p> </div>"; 
+                    echo "<div class='quantity-container-order'>";
+                    echo "<div class='quantity-controls-order'>";
+                    echo "<label for='quantity'>Кількість товару:</label>";
+                    echo "<button class='decrement' onclick='decrementQuantity()'>-</button>";
+                    echo "<input type='number' id='quantity' name='quantity' min='1' value='1'>";
+                    echo "<button class='increment' onclick='incrementQuantity()'>+</button>";
+                    echo "</div> </div> </div>";
+                }
+
+            }
+            else{
+                echo "<h1 style='text-align: center;'>Кошик порожній</h1>";
+                echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a>";
+            }
+        ?>
+   
+            <?php  
+                if(isset($_SESSION['cart']))
+                    echo "<div class='button-container'> <a href='/order'> <button>Оформити замовлення</button> </a>";
+                    echo "<form style='margin: 0' method='POST'>";?>
+                    {{method_field('post')}} 
+                    @csrf
+                   <?php echo "<button type='submit' value='submit' name='submit'>Очистити корзину</button> </form> </div>";
+            ?>
+
+   <!--
+         <div class="bike-card">
         <a href="characteristics.html">
             <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
         </a>
@@ -175,12 +224,11 @@
             </div>
         </div>
     </div>
-    <div class="button-container">
-        <a href="/order">
-        <button>Оформити замовлення</button>
-    </a>
-        <button>Очистити корзину</button>
-    </div>
+        -->
+    
+    
+    
+
 </main>
 <footer>
     <p>&copy; 2023</p>

@@ -10,7 +10,7 @@ Route::get('/about-us', function () {
     return view('about-us');
 });
 
-Route::get('/basket', function () {
+Route::any('/basket', function () {
     return view('basket');
 });
 
