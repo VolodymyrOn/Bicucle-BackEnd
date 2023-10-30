@@ -144,16 +144,7 @@
         <span id="cart-count" class="cart-count">0</span>
     </div>
 </nav>
-<main class="main">
-    <div class="bike-card">
-        <a href="/characteristics">
-            <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-        </a>
-        <div class="bike-info">
-            <h2>Велосипед 1</h2>
-            <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
-            <p>Ціна: $500</p>
-        </div>
+
 
         <!-- 
             echo "<div class='bike-card'>";
@@ -165,18 +156,30 @@
             echo " <button>До порівняння</button> </div> </div>";
 
          -->
-        <div class="quantity-container">
-            <div class="quantity-controls">
+         <main class="main">
+    <div class="bike-card">
+        <a href="characteristics.html">
+            <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+        </a>
+        <div class="bike-info-order">
+            <h2>Велосипед 1</h2>
+            <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+            <p>Ціна: $500</p>
+        </div>
+        <div class="quantity-container-order">
+            <div class="quantity-controls-order">
                 <label for="quantity">Кількість товару:</label>
                 <button class="decrement" onclick="decrementQuantity()">-</button>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
                 <button class="increment" onclick="incrementQuantity()">+</button>
             </div>
         </div>
-        <div class="button-container">
-            <button>Підтвердити купівлю</button>
-            <button>Скасувати купівлю</button>
-        </div>
+    </div>
+    <div class="button-container">
+        <a href="/order">
+        <button>Оформити замовлення</button>
+    </a>
+        <button>Очистити корзину</button>
     </div>
 </main>
 <footer>

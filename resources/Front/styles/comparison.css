@@ -1,0 +1,62 @@
+.bike-card-comparison1 {
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-left: 450px;
+}
+
+.bike-card-comparison2 {
+    background-color: #444;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-left: 390px;
+}
+
+.bike-card-comparison1 img {
+    border-radius: 5px;
+    max-width: 250px;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 2);
+}
+
+.bike-card-comparison2 img {
+    border-radius: 5px;
+    max-width: 250px;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 2);
+}
+
+.bike-card-comparison1 h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.bike-card-comparison2 h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.bike-comparison{
+    margin: 10px;
+    width: 100%;
+}

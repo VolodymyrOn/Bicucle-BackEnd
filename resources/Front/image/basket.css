@@ -55,29 +55,6 @@
   align-items: center;
 }
 
-.button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0; 
-  width: 100%; 
-  text-align: center; 
-  flex-direction: row; 
-}
-
-.button-container button {
-  margin: 10px;
-  width: 300px;
-  background-color: #ff6600;
-}
-
-.button-container button:hover {
-  background-color: #d84800;
-}
-
-
-
 label[for="quantity"] {
   margin-right: 10px;
 }

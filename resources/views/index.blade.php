@@ -1,7 +1,8 @@
 <?php 
 include(public_path().'\func.php');
-if(isset($_GET['id'])){ addToCart($_GET['id']); }
+if(isset($_GET['id'])){ addToCart($_GET['id']); echo "<script>location.href='/';</script>"; }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,12 +1,13 @@
-@import "bike-info.css";
-@import "footer.css";
-@import "header.css";
-@import "scrollbar.css";
-@import "sidebar.css";
-@import "basket.css";
-@import "characteristics.css";
-@import "comparison.css";
-@import "order.css";
+@import "styles/bike-info.css";
+@import "styles/footer.css";
+@import "styles/header.css";
+@import "styles/scrollbar.css";
+@import "styles/sidebar.css";
+@import "styles/basket.css";
+@import "styles/characteristics.css";
+@import "styles/comparison.css";
+@import "styles/order.css";
+
 
 body {
     font-family: Arial, sans-serif;
@@ -26,13 +27,4 @@ body {
     flex-grow: 1; /* Карточки займають весь доступний простір в main */
 }
 
-button {
-    cursor: pointer;
-    background-color: #ff6600;
-    color: #fff;
-    transition: background-color 0.3s;
-}
 
-button:hover {
-    background-color: #ff5500;
-}

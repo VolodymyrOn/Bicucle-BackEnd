@@ -29,3 +29,11 @@ Route::get('/administrator', function () {
 Route::get('/characteristics', function () {
     return view('characteristics');
 });
+
+Route::get('/order', function () {
+    return view('order');
+});
+
+Route::get('/purchase-notification', function () {
+    return view('purchase-notification');
+});

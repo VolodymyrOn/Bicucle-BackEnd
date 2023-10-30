@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/atb.png" type="image/png">
+    <title>BikeShop</title>
+    <link rel="icon" href="image/privat-bank.jpg">
+</head>
+<body>
+    <header>
+        <img src="image/bikeshop.png" alt="Велосипед 1">
+        <h1>BikeShop</h1>
+    </header>
+    <nav>
+        <div class="nav-center">
+            <a href="index.html">Каталог</a>
+            <a href="about-us.html">Про нас</a>
+            <a href="comparison.html">Порівняння</a>
+        </div>
+        <div class="nav-right">
+            <a class="basket-button" href="basket.html">
+                <img class="basket" src="image/basket2.png" alt="Корзина">
+            </a>
+            <div id="cart-count-container" class="cart-count-container">
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    <div id="notification" class="notification">
+        Товар додано до корзини
+    </div>
+    <div class="container">
+        <aside class="sidenav">
+            <div class="sidebar">
+                <h2>Фільтр</h2>
+                <form id="filterForm">
+                    <label for="wheelDiameter">Діаметр колеса:</label>
+                    <select id="wheelDiameter" name="wheelDiameter">
+                        <option value="">Виберіть діаметр колеса</option>
+                        <option value="27.5">27,5"</option>
+                    </select>
+        
+                    <label for="cassette">Касета:</label>
+                    <select id="cassette" name="cassette">
+                        <option value="">Виберіть касету</option>
+                        <option value="Shimano HG41, 11-31, 8-шв">Shimano HG41, 11-31, 8-шв</option>
+                    </select>
+        
+                    <label for="shifters">Ручки перемикання:</label>
+                    <select id="shifters" name="shifters">
+                        <option value="">Виберіть ручки перемикання</option>
+                        <option value="Shimano Easy Fire EF505, 2x8">Shimano Easy Fire EF505, 2x8</option>
+                    </select>
+        
+                    <label for="rims">Обода:</label>
+                    <select id="rims" name="rims">
+                        <option value="">Виберіть ободи</option>
+                        <option value="Cannondale, двостінні, 32 спиці">Cannondale, двостінні, 32 спиці</option>
+                    </select>
+        
+                    <label for="pedals">Педалі:</label>
+                    <select id="pedals" name="pedals">
+                        <option value="">Виберіть педалі</option>
+                        <option value="Cannondale Urban Pedal">Cannondale Urban Pedal</option>
+                    </select>
+        
+                    <label for="frontBrakes">Передні гальма:</label>
+                    <select id="frontBrakes" name="frontBrakes">
+                        <option value="">Виберіть передні гальма</option>
+                        <option value="Гідравлічний дисковий Shimano MT200, ротор RT26 160мм">Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</option>
+                    </select>
+        
+                    <label for="frontDerailleur">Передній перемикач:</label>
+                    <select id="frontDerailleur" name="frontDerailleur">
+                        <option value="">Виберіть передній перемикач</option>
+                        <option value="Shimano Tourney, хомут 31.8">Shimano Tourney, хомут 31.8</option>
+                    </select>
+        
+                    <label for="tires">Покришки:</label>
+                    <select id="tires" name="tires">
+                        <option value="">Виберіть покришки</option>
+                        <option value="WTB Byway, 650b x 40c">WTB Byway, 650b x 40c</option>
+                    </select>
+        
+
+        
+                    <button type="submit">Фільтрувати</button>
+                </form>
+            </div>
+        </aside>
+    <main class="main">
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+        <div class="bike-card">
+            <div class="bike-info">
+                <h2>Велосипед 1</h2>
+                <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
+                <p>Ціна: $500</p>
+            </div>
+            <a href="characteristics.html">
+                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            </a>
+            <div class="button-container-index">
+                <button>Купити</button>
+                <button>До порівняння</button>
+            </div>
+        </div>
+    </main>
+</div>
+    <footer>
+        <p>&copy; 2023</p>
+    </footer>
+    <script src="scripts/basket.js"></script>
+    <script src="scripts/sidebar.js"></script>
+</body>
+</html>
