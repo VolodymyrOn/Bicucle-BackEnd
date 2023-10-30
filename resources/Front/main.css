@@ -1,0 +1,30 @@
+@import "styles/bike-info.css";
+@import "styles/footer.css";
+@import "styles/header.css";
+@import "styles/scrollbar.css";
+@import "styles/sidebar.css";
+@import "styles/basket.css";
+@import "styles/characteristics.css";
+@import "styles/comparison.css";
+@import "styles/order.css";
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #232323; /* Змінити колір фону */
+    margin: 0;
+    color: #fff; /* Змінити колір тексту */
+}
+
+.main {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Карточки переносяться на новий ряд при необхідності */
+    justify-content: flex-start; /* Карточки розташовуються зліва */
+    flex-grow: 1; /* Карточки займають весь доступний простір в main */
+}
+
+

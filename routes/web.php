@@ -10,11 +10,11 @@ Route::get('/about-us', function () {
     return view('about-us');
 });
 
-Route::get('/basket', function () {
+Route::any('/basket', function () {
     return view('basket');
 });
 
-Route::get('/comparison', function () {
+Route::any('/comparison', function () {
     return view('comparison');
 });
 
@@ -26,6 +26,14 @@ Route::get('/administrator', function () {
     return view('administrator');
 });
 
-Route::get('/characteristics', function () {
+Route::any('/characteristics', function () {
     return view('characteristics');
+});
+
+Route::get('/order', function () {
+    return view('order');
+});
+
+Route::get('/purchase-notification', function () {
+    return view('purchase-notification');
 });

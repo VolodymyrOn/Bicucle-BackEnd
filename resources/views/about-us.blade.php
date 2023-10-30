@@ -12,9 +12,11 @@
         <h1>Про нас</h1>
     </header>
     <nav> 
+        <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+        </div>
     </nav>
     <main class="main">
         <div class="about-us">

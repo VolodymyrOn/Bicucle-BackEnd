@@ -1,0 +1,7 @@
+footer {
+    background-color: #111; /* Змінити колір фону підвалу */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;                                                                           
+}

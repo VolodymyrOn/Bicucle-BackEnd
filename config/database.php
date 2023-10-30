@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$db=mysqli_connect("localhost","root","","laravel");
+
 return [
 
     /*

@@ -1,0 +1,22 @@
+/* Стилізація скрол-бару для веб-кіт браузерів (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 6px; /* Ширина скрол-бару */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ff6600; /* Колір бару */
+    border-radius: 5px; /* Круглі кути */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d84800; /* Колір бару при наведенні */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #444; /* Колір фону треку (фонова частина скрол-бару) */
+}
+
+/* Сховати горизонтальний скрол-бар, якщо потрібно */
+::-webkit-scrollbar-horizontal {
+    display: none;
+}

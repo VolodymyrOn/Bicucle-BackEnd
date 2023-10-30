@@ -4,6 +4,9 @@
 @import "scrollbar.css";
 @import "sidebar.css";
 @import "basket.css";
+@import "characteristics.css";
+@import "comparison.css";
+@import "order.css";
 
 body {
     font-family: Arial, sans-serif;
@@ -21,15 +24,4 @@ body {
     flex-wrap: wrap; /* Карточки переносяться на новий ряд при необхідності */
     justify-content: flex-start; /* Карточки розташовуються зліва */
     flex-grow: 1; /* Карточки займають весь доступний простір в main */
-}
-
-button {
-    cursor: pointer;
-    background-color: #ff6600;
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ff5500;
 }
