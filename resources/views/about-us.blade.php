@@ -1,3 +1,6 @@
+<?php
+        include(public_path().'\func.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
         <div id="cart-count-container-index" class="cart-count-container-index">
-                <span id="cart-count-index" class="cart-count-index">0</span>
+                <span id="cart-count-index" class="cart-count-index"><?php echo $_SESSION['comp_count']; ?></span>
             </div>
         </div>
     </nav>
