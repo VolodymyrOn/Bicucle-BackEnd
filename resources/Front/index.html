@@ -18,6 +18,9 @@
             <a href="index.html">Каталог</a>
             <a href="about-us.html">Про нас</a>
             <a href="comparison.html">Порівняння</a>
+            <div id="cart-count-container-index" class="cart-count-container-index">
+                <span id="cart-count-index" class="cart-count-index">0</span>
+            </div>
         </div>
         <div class="nav-right">
             <a class="basket-button" href="basket.html">
@@ -36,62 +39,47 @@
             <div class="sidebar">
                 <h2>Фільтр</h2>
                 <form id="filterForm">
-                    <label for="wheelDiameter">Діаметр колеса:</label>
-                    <select id="wheelDiameter" name="wheelDiameter">
-                        <option value="">Виберіть діаметр колеса</option>
-                        <option value="27.5">27,5"</option>
+                    <label for="brand">Марка велосипеда:</label>
+                    <select id="brand" name="brand">
+                        <option value="">Виберіть марку велосипеда</option>
+                        <option value="Merida">Merida</option>
+                        <option value="Cannondale">Cannondale</option>
                     </select>
-        
-                    <label for="cassette">Касета:</label>
-                    <select id="cassette" name="cassette">
-                        <option value="">Виберіть касету</option>
-                        <option value="Shimano HG41, 11-31, 8-шв">Shimano HG41, 11-31, 8-шв</option>
+                
+                    <label for="bikeType">Тип велосипеда:</label>
+                    <select id="bikeType" name="bikeType">
+                        <option value="">Виберіть тип велосипеда</option>
+                        <option value="Гірський">Гірський</option>
+                        <option value="Міський">Міський</option>
                     </select>
-        
-                    <label for="shifters">Ручки перемикання:</label>
-                    <select id="shifters" name="shifters">
-                        <option value="">Виберіть ручки перемикання</option>
-                        <option value="Shimano Easy Fire EF505, 2x8">Shimano Easy Fire EF505, 2x8</option>
+                
+                    <label for="wheelSize">Розмір коліс:</label>
+                    <select id="wheelSize" name="wheelSize">
+                        <option value="">Виберіть розмір коліс</option>
+                        <option value="27,5">27,5</option>
+                        <option value="29,5">29,5</option>
                     </select>
-        
-                    <label for="rims">Обода:</label>
-                    <select id="rims" name="rims">
-                        <option value="">Виберіть ободи</option>
-                        <option value="Cannondale, двостінні, 32 спиці">Cannondale, двостінні, 32 спиці</option>
+                
+                    <label for="brakeType">Тип гальмів:</label>
+                    <select id="brakeType" name="brakeType">
+                        <option value="">Виберіть тип гальмів</option>
+                        <option value="MTB linear pull">MTB linear pull</option>
+                        <option value="MTB5 linear pull">MTB5 linear pull</option>
                     </select>
-        
-                    <label for="pedals">Педалі:</label>
-                    <select id="pedals" name="pedals">
-                        <option value="">Виберіть педалі</option>
-                        <option value="Cannondale Urban Pedal">Cannondale Urban Pedal</option>
+                
+                    <label for="color">Колір велосипеда:</label>
+                    <select id="color" name="color">
+                        <option value="">Виберіть колір велосипеда</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
                     </select>
-        
-                    <label for="frontBrakes">Передні гальма:</label>
-                    <select id="frontBrakes" name="frontBrakes">
-                        <option value="">Виберіть передні гальма</option>
-                        <option value="Гідравлічний дисковий Shimano MT200, ротор RT26 160мм">Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</option>
-                    </select>
-        
-                    <label for="frontDerailleur">Передній перемикач:</label>
-                    <select id="frontDerailleur" name="frontDerailleur">
-                        <option value="">Виберіть передній перемикач</option>
-                        <option value="Shimano Tourney, хомут 31.8">Shimano Tourney, хомут 31.8</option>
-                    </select>
-        
-                    <label for="tires">Покришки:</label>
-                    <select id="tires" name="tires">
-                        <option value="">Виберіть покришки</option>
-                        <option value="WTB Byway, 650b x 40c">WTB Byway, 650b x 40c</option>
-                    </select>
-        
-
-        
-                    <button type="submit">Фільтрувати</button>
+                
+                    <button id="filterButton" type="button">Фільтрувати</button>
                 </form>
             </div>
         </aside>
     <main class="main">
-        <div class="bike-card">
+        <div class="bike-card" data-brand="Merida" data-bike-type="Гірський" data-wheel-size="27,5" data-brake-type="MTB linear pull" data-color="Red">
             <div class="bike-info">
                 <h2>Велосипед 1</h2>
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
@@ -105,7 +93,7 @@
                 <button>До порівняння</button>
             </div>
         </div>
-        <div class="bike-card">
+        <div class="bike-card" data-brand="Cannondale" data-bike-type="Міський" data-wheel-size="29,5" data-brake-type="MTB5 linear pull" data-color="Green">
             <div class="bike-info">
                 <h2>Велосипед 1</h2>
                 <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
@@ -237,6 +225,7 @@
         <p>&copy; 2023</p>
     </footer>
     <script src="scripts/basket.js"></script>
+    <script src="scripts/basket-comparison.js"></script>
     <script src="scripts/sidebar.js"></script>
 </body>
 </html>

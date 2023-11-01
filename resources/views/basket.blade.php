@@ -34,14 +34,18 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<header>
-    <h1>Корзина</h1>
-</header>
-<nav> 
+    <header>
+        <img src="image/bikeshop.png" alt="Велосипед 1">
+        <h1>BikeShop</h1>
+    </header>
+    <nav>
 <div class="nav-center">
     <a href="/">Каталог</a>
     <a href="/about-us">Про нас</a>
     <a href="/comparison">Порівняння</a>
+    <div id="cart-count-container-index" class="cart-count-container-index">
+                <span id="cart-count-index" class="cart-count-index"><?php echo $_SESSION['comp_count']; ?></span>
+            </div>
 </div>
     <div class="nav-right">
     <a class="basket-button" href="/basket" id="basket-link">
@@ -111,29 +115,6 @@
                    <?php if(isset($_SESSION['cart'])) echo "<button type='submit' value='submit' name='submit'>Очистити корзину</button> </form> </div>";
             ?>
 
-   <!--
-         <div class="bike-card">
-        <a href="characteristics.html">
-            <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-        </a>
-        <div class="bike-info-order">
-            <h2>Велосипед 1</h2>
-            <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
-            <p>Ціна: $500</p>
-        </div>
-        <div class="quantity-container-order">
-            <div class="quantity-controls-order">
-                <label for="quantity">Кількість товару:</label>
-                <button class="decrement" onclick="decrementQuantity()">-</button>
-                <input type="number" id="quantity" name="quantity" min="1" value="1">
-                <button class="increment" onclick="incrementQuantity()">+</button>
-            </div>
-        </div>
-    </div>
-        -->
-    
-    
-    
 
 </main>
 <footer>

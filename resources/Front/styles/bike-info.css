@@ -110,5 +110,8 @@ button:hover {
     box-sizing: border-box; /* Ураховує відступи в обчисленні ширини */
     justify-content: center; /* Вирівнювання тексту по центру по горизонталі */
 }
+.hidden {
+    display: none;
+}
 
 

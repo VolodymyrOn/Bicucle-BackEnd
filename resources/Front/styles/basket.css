@@ -20,6 +20,20 @@
   top: -35px;
   right: -5px;
 }
+.cart-count-container-index {
+  position: relative;
+  display: inline-block;
+}
+.cart-count-index {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 16px;
+  position: absolute;
+  right: -15px;
+}
+
 
 
 .notification {
