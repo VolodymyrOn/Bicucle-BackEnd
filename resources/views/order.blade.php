@@ -15,32 +15,35 @@
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+        <div id="cart-count-container-index" class="cart-count-container-index">
+                <span id="cart-count-index" class="cart-count-index">0</span>
+            </div>
         </div>
     </nav>
 <main class="main">
-    <div class="order-container">
+<div class="order-container">
         <div class="order-fields">
             <form>
                 <label for="lastname">Прізвище:</label>
-                <input type="text" id="lastname" name="lastname" required>
+                <input type="text" id="lastname" name="lastname" required placeholder="Введіть прізвище">
     
                 <label for="firstname">Ім’я:</label>
-                <input type="text" id="firstname" name="firstname" required>
+                <input type="text" id="firstname" name="firstname" required placeholder="Введіть ім’я">
     
                 <label for="middlename">По батькові:</label>
-                <input type="text" id="middlename" name="middlename" required>
+                <input type="text" id="middlename" name="middlename" required placeholder="Введіть по батькові">
     
                 <label for="phone">Номер телефону:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="phone" required placeholder="Введіть номер"> 
     
                 <label for="city">Населений пункт:</label>
-                <input type="text" id="city" name="city" required>
+                <input type="text" id="city" name="city" required placeholder="Введіть населений пункт">
     
                 <label for="street">Вулиця:</label>
-                <input type="text" id="street" name="street" required>
+                <input type="text" id="street" name="street" required placeholder="Введіть вулицю">
     
                 <label for="house">Будинок:</label>
-                <input type="text" id="house" name="house" required>
+                <input type="text" id="house" name="house" required placeholder="Введіть номер будинку/квартиру">
     
                 <label for="payment-method">Спосіб оплати:</label>
                 <select id="payment-method" name="payment-method">

@@ -8,7 +8,7 @@
   
 session_start();
 if(isset($_SESSION['Basket'])){}else{$_SESSION['Basket']=0;}
-
+if(isset( $_SESSION['comp_count'])){}else{ $_SESSION['comp_count']=0;}
 function addToCart($Id) {
    if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
@@ -49,5 +49,49 @@ function removeFromCart($Id) {
     }
   }
 }
+
+function addToComparison($Id) {
+  if (!isset($_SESSION['comparison'])) {
+   $_SESSION['comparison'] = array();
+ }
+
+ $have = false;
+
+
+
+ foreach ($_SESSION['comparison'] as $id => $value) {
+     var_dump($id);
+    if ($id == $Id) {
+      unset($_SESSION['comparison'][$Id]);
+      $_SESSION['comp_count']-=1;
+    }
+    $have=false;
+    
+    break;
+  }
+ 
+
+ if (!$have) {
+  $newItem = $Id;
+  $_SESSION['comparison'][] = $Id;
+  $have=true;
+}
+
+ $_SESSION['comp_count']+=1;
+}
+
+function removeFromComparison($Id) {
+ if (isset($_SESSION['comparison'])) {
+   foreach ($_SESSION['comparison'] as $key => &$item) {
+     
+       if ($item['id'] == $Id) {
+         unset($_SESSION['comparison']);
+         $_SESSION['comp_count']-=1;
+       }
+       
+       break;
+     }
+   }
+ }
 
 ?>

@@ -9,13 +9,17 @@
 </head>
 <body>
     <header>
-        <h1>Про нас</h1>
+        <img src="image/bikeshop.png" alt="Велосипед 1">
+        <h1>BikeShop</h1>
     </header>
-    <nav> 
+    <nav>
         <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+        <div id="cart-count-container-index" class="cart-count-container-index">
+                <span id="cart-count-index" class="cart-count-index">0</span>
+            </div>
         </div>
     </nav>
     <main class="main">

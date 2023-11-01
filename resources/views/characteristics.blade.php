@@ -2,7 +2,6 @@
 include(public_path().'\func.php');
 if(isset($_GET['id'])){ addToCart($_GET['id']); }
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +12,17 @@ if(isset($_GET['id'])){ addToCart($_GET['id']); }
 </head>
 <body>
     <header>
-        <h1>Характеристики велосипеда</h1>
+        <img src="image/bikeshop.png" alt="Велосипед 1">
+        <h1>BikeShop</h1>
     </header>
-    <nav> 
+    <nav>
     <div class="nav-center">
         <a href="/">Каталог</a>
         <a href="/about-us">Про нас</a>
         <a href="/comparison">Порівняння</a>
+        <div id="cart-count-container-index" class="cart-count-container-index">
+                <span id="cart-count-index" class="cart-count-index">0</span>
+            </div>
     </div>
     <div class="nav-right">
         <a class="basket-button" href="/basket" id="basket-link">
@@ -149,31 +152,41 @@ if(isset($_GET['id'])){ addToCart($_GET['id']); }
         <div class="offers">
             <h3>Інші пропозиції:</h3>
             <div class="bike-card-offers">
-                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <a href="characteristics.html">
+                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                </a>
                 <h2>Велосипед 1</h2>
                 <h4>опис</h4>
                 <p>Ціна: $500</p>
             </div>
             <div class="bike-card-offers">
-                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <a href="characteristics.html">
+                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                </a>
                 <h2>Велосипед 1</h2>
                 <h4>опис</h4>
                 <p>Ціна: $500</p>
             </div>
             <div class="bike-card-offers">
-                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <a href="characteristics.html">
+                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                </a>
                 <h2>Велосипед 1</h2>
                 <h4>опис</h4>
                 <p>Ціна: $500</p>
             </div>
             <div class="bike-card-offers">
-                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <a href="characteristics.html">
+                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                </a>
                 <h2>Велосипед 1</h2>
                 <h4>опис</h4>
                 <p>Ціна: $500</p>
             </div>
             <div class="bike-card-offers">
-                <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                <a href="characteristics.html">
+                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+                </a>
                 <h2>Велосипед 1</h2>
                 <h4>опис</h4>
                 <p>Ціна: $500</p>

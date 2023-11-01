@@ -1,4 +1,4 @@
-// Функція для показу повідомлення
+//Функція для показу повідомлення
 // function showNotification(message) {
 //     var notification = document.getElementById("notification");
 //     notification.textContent = message;
@@ -25,6 +25,7 @@ function addToCart() {
 }
 
 // Додати обробку натискання кнопки "Купити"
-var buyButton = document.querySelector('.bike-card button:first-of-type');
-buyButton.addEventListener('click', addToCart);
-
+var buyButtons = document.querySelectorAll('.bike-card button:first-of-type');
+buyButtons.forEach(function(button) {
+    button.addEventListener('click', addToCart);
+  });
