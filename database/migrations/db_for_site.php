@@ -54,6 +54,14 @@ return new class extends Migration
             Schema::create('Orders', function (Blueprint $table) {
                 $table->id();
                 $table->text('Velo_id');
+                $table->text('surname');
+                $table->text('name');
+                $table->text('patronymic');
+                $table->text('phone_number');
+                $table->text('city');
+                $table->text('street');
+                $table->text('house_number');
+                $table->text('payment');
                 $table->float('Total_price');
                 $table->timestamps();
             });

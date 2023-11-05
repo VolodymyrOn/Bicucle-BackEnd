@@ -17,7 +17,7 @@
             addToCart($_GET['id']);    
             echo "<script>location.href='/basket';</script>";
         }
-        header("Location: koshyk.php");
+
     }
         $query="SELECT * from bicucles";
         $db_res=mysqli_query($db, $query);
@@ -32,6 +32,7 @@
     <meta charset="UTF-8">
     <title>Корзина</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
 </head>
 <body>
     <header>
@@ -56,30 +57,21 @@
     </div>
 </div>
 </nav>
-
-
-        <!-- 
-            echo "<div class='bike-card'>";
-            echo "<div class='bike-info'>";
-            echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
-            echo " <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p> <p>Ціна:".$bike['Price']."$</p> </div>"; 
-            echo " <a href='/characteristics?id=".$bike['id']."'>";
-            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a> <div class='button-container'> <button>Купити</button>";
-            echo " <button>До порівняння</button> </div> </div>";
-
-         -->
          <main class="main">
          {{method_field('post')}} 
          @csrf
         <?php
             if(isset($_SESSION['cart'])){
+                $total=0;
                 foreach($_SESSION['cart'] as $elem){
                     $query = "SELECT * FROM bicucles WHERE ID = " . $elem['id'];
                     $res=mysqli_query($db, $query);
                     $bike=mysqli_fetch_assoc($res);
+                    $price=$elem['quantity']*$bike['Price'];
+                    $total+=$price;
                     echo "<div class='bike-card'>";
                     echo " <a href='/characteristics?id=".$bike['id']."'>";
-                    echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a>";
+                    echo "<img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg'> </a>";
                     echo "<div class='bike-info-order'>";
                     echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
                     echo " <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p> <p>Ціна:".$bike['Price']."$</p> </div>"; 
@@ -90,11 +82,6 @@
                     echo "<a href='/basket?id=".$elem['id']."&oper=-'><button class='decrement'>-</button></a>";
                     echo   $elem['quantity'];
                     echo "<a href='/basket?id=".$elem['id']."&oper=%2B'><button class='increment'>+</button></a>";
-                    /*
-                    echo "<button class='decrement' onclick='decrementQuantity()'>-</button>";
-                    echo "<input type='number' id='quantity' name='quantity' min='1' value='1'>";
-                    echo "<button class='increment' onclick='incrementQuantity()'>+</button>";
-                    */
 
                     echo "</div> </div> </div>";
                 }
@@ -103,19 +90,16 @@
             else{
                 echo "<h1 style='text-align: center;'>Кошик порожній</h1>";
                 echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a>";
-            }
-        ?>
-   
-            <?php  
-                if(isset($_SESSION['cart']))
+            } 
+                if(isset($_SESSION['cart'])){
+                    echo "<center>Сума: $total$</center>";
+                    $_SESSION['Tot_p']=$total;
                     echo "<div class='button-container'> <a href='/order'> <button>Оформити замовлення</button> </a>";
-                    echo "<form style='margin: 0' method='POST'>";?>
+                    echo "<form style='margin: 0' method='POST'>";}?>
                     {{method_field('post')}} 
                     @csrf
                    <?php if(isset($_SESSION['cart'])) echo "<button type='submit' value='submit' name='submit'>Очистити корзину</button> </form> </div>";
             ?>
-
-
 </main>
 <footer>
     <p>&copy; 2023</p>

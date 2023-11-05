@@ -1,5 +1,35 @@
 <?php
         include(public_path().'\func.php');
+
+        if(isset($_POST['submitdb'])){
+            $lastname = $_POST['lastname'];
+            $firstname = $_POST['firstname'];
+            $middlename = $_POST['middlename'];
+            $phone = $_POST['phone'];
+            $city = $_POST['city'];
+            $street = $_POST['street'];
+            $house = $_POST['house'];
+            $paymentMethod = $_POST['payment-method'];
+            $order='';
+            foreach($_SESSION['cart'] as $bike){
+                $res=mysqli_query($db,"SELECT Marka, Model, Color from bicucles where id={$bike['id']}");
+                foreach($res as $res1){
+                    $bikedb=$res1['Marka']." ".$res1['Model']." ".$res1['Color'];
+                }
+                $order=$order."  ".$bikedb." (" . $bike['id'] . "): " . $bike['quantity'] . "; ";
+            }
+            $_SESSION['Order']=$order;
+            unset($_SESSION['cart']);
+            $_SESSION['Basket']=0;
+
+            $sql = "INSERT INTO orders (velo_id ,surname, name, patronymic, phone_number, city, street, house_number, payment, Total_price)
+            VALUES ( '$order', '$lastname', '$firstname', '$middlename', '$phone', '$city', '$street', '$house', '$paymentMethod', '{$_SESSION['Tot_p']}')";
+            mysqli_query($db,$sql);
+            $_SESSION['lastInsertedId'] = mysqli_insert_id($db);
+            unset($POST);
+            echo "<script>location.href='/purchase-notification';</script>";
+
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -7,6 +37,7 @@
     <meta charset="UTF-8">
     <title>Корзина</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
 </head>
 <body>
     <header>
@@ -26,7 +57,9 @@
 <main class="main">
 <div class="order-container">
         <div class="order-fields">
-            <form>
+        <form method="POST" action="">
+            {{method_field('post')}} 
+            @csrf
                 <label for="lastname">Прізвище:</label>
                 <input type="text" id="lastname" name="lastname" required placeholder="Введіть прізвище">
     
@@ -53,45 +86,42 @@
                     <option value="card">Кредитною карткою</option>
                     <option value="cash">Готівкою при отриманні</option>
                 </select>
-    
-            </form>
+                <?php echo "<h1>Сума: {$_SESSION['Tot_p']} $</h1>";?>
+          
         </div>
     </div>
     
     <div class="bike-container">
-        <div class="bike-cards-container">
-            <div class="bike-card-order">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <div class="bike-info-order">
-                    <h2>Велосипед 1</h2>
-                    <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
-                    <p class="price">Ціна: $500</p><br>
-                    <p>Кількість: 1 шт.</p>
-                </div>
-            </div>
+
+        <?php
+            if(isset($_SESSION['cart'])){
+            foreach($_SESSION['cart'] as $elem){
+                $query = "SELECT * FROM bicucles WHERE ID = " . $elem['id'];
+                $res=mysqli_query($db, $query);
+                $bike=mysqli_fetch_assoc($res);   
+                
+                
+                echo "<div class='bike-cards-container'>
+                    <div class='bike-card-order'>
+                        <a href='/characteristics?id=".$bike['id']."'>
+                            <img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg' alt='Велосипед 1'>
+                        </a>
+                        <div class='bike-info-order'>
+                        <h2>".$bike['Marka'].' '.$bike['Model']."</h2>
+                            <p class='price'>Ціна: ".$bike['Price']."</p><br>
+                            <p>Кількість: {$elem['quantity']} шт.</p>
+                        </div>
+                    </div>
+                </div>";
+                }}
+        
+        ?>
+        
         </div>
-        <div class="bike-cards-container">
-            <div class="bike-card-order">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <div class="bike-info-order">
-                    <h2>Велосипед 1</h2>
-                    <p>Це опис велосипеда 1. Він дуже крутий і швидкий.</p>
-                    <p class="price">Ціна: $500</p><br>
-                    <p>Кількість: 1 шт.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="button-container">
-        <a href="/purchase-notification">
-            <button>Оформити замовлення</button>
-        </a>
-        <button>Очистити корзину</button>
+    {{method_field('post')}} 
+            <button type='submitdb' value='submitdb' name='submitdb'>Оформити замовлення</button>
+    </form>
     </div>
 </main>
 <footer>

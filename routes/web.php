@@ -30,7 +30,7 @@ Route::any('/characteristics', function () {
     return view('characteristics');
 });
 
-Route::get('/order', function () {
+Route::any('/order', function () {
     return view('order');
 });
 
