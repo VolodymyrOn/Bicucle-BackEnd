@@ -14,7 +14,7 @@
     align-items: center;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     width: 320px;
-    height: 290px;
+    height: auto;
     box-sizing: border-box;
     justify-content: space-between;
     flex-direction: column;
@@ -33,11 +33,11 @@
 }
 
 .vl{
-    width: 310px;
+    width: 300px;
 }
 
 .vl1{
-    width: 245px;
+    width: 240px;
 }
 
 .button-container-comparison button{
@@ -56,3 +56,4 @@
 .bike-card-comparison button:hover {
     background-color: #d84800;
 }
+

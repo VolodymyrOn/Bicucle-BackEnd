@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/Authorization.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сторінка авторизації</title>
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
 </head>
 <body>
     <div class="container">

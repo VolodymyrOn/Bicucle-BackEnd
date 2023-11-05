@@ -32,6 +32,7 @@
     <meta charset="UTF-8">
     <title>Корзина</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
 </head>
 <body>
     <header>

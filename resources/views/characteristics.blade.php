@@ -1,13 +1,15 @@
 <?php 
 include(public_path().'\func.php');
-if(isset($_GET['id'])){ addToCart($_GET['id']); }
+if(isset($_POST['submit'])){ unset($_POST); addToCart($_GET['id']);  echo "<script>location.href='/characteristics?id=".$_GET['id']."';</script>";}
+
+if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location.href='/characteristics?id=".$_GET['id']."';</script>"; }
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/atb.png" type="image/png">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
     <title>Характеристики</title>
 </head>
 <body>
@@ -50,11 +52,18 @@ if(isset($_GET['id'])){ addToCart($_GET['id']); }
             echo "<form style='margin: 0' method='POST'>";?>
             {{method_field('post')}} 
             @csrf
-           <?php echo "<button type='submit' value='submit' name='submit'>Купити</button> </form> </div>";
-
-                        echo " <button>До порівняння</button> </div>  </div>";
+            <?php echo "<button type='submit' value='submit' name='submit'>Купити</button> </form> </div>";
+             echo "<a href='/characteristics?id_c=".$bike['id']."&id=".$bike['id']."'>";
+            $i=false;
+            foreach($_SESSION['comparison'] as $res){
+            if($id==$res['id']){echo "<button>Вилучити з порівняння</button>"; $i=true;}}
+            if(!$i) {echo "<button>Додати до порівняння</button>";}
         }
            ?>
+
+    </a>
+    </div>
+    </div>
 
 
         <div class="bike-description">

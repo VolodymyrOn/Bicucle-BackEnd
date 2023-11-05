@@ -1,7 +1,9 @@
 <?php 
 include(public_path().'\func.php');
-var_dump($_SESSION['comparison']);
-
+if(isset($_GET['id'])){ addToCart($_GET['id']); echo "<script>location.href='/comparison';</script>"; }
+if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location.href='/comparison';</script>"; }
+$query="SELECT * FROM bicucles";
+$res=mysqli_query($db, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +11,7 @@ var_dump($_SESSION['comparison']);
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/atb.png" type="image/png">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
     <style>
         /* Зберігаємо стилі для header */
 header {
@@ -54,7 +56,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
- 
+    
 }
 
 .main {
@@ -74,9 +76,16 @@ footer {
     right: 0;
     overflow: auto;
     overflow-x: auto;
-    z-index: 99999;
+    z-index: 99999;}
+    
+    .td_res {
+        white-space: wrap;
+    min-width: 550px;
+    max-width: 550px;
 
 }
+
+
 </style>
     <title>Порівняння</title>
 </head>
@@ -102,228 +111,122 @@ footer {
             <span id="cart-count" class="cart-count"><?php echo $_SESSION['Basket']; ?></span>
         </div>
         </div>
+</nav>
         <div id="notification" class="notification">
         Товар додано до корзини
     </div>
     <main class="main">
-    <?php var_dump($_SESSION['comparison']); ?>
-        <div class="comparison-container">
-            <div class="bike-cards-container">
-                <div class="vl"></div>
-                <div class="bike-card-comparison">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                    <h3>Велосипед 1</h3>
-                    <div class="button-container-comparison">
-                        <button>Купити</button>
-                        <button>Видалити з порівняння</button>
-                    </div>
-                </div>
-                <div class="vl1"></div>
-                <div class="bike-card-comparison">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 2">
-                    <h3>Велосипед 2</h3>
-                    <div class="button-container-comparison">
-                        <button>Купити</button>
-                        <button>Видалити з порівняння</button>
-                    </div>
-                </div>
-                <div class="vl1"></div>
-                <div class="bike-card-comparison">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 3">
-                    <h3>Велосипед 3</h3>
-                    <div class="button-container-comparison">
-                        <button>Купити</button>
-                        <button>Видалити з порівняння</button>
-                    </div>
-                </div>
-                <div class="vl1"></div>
-                <div class="bike-card-comparison">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 4">
-                    <h3>Велосипед 4</h3>
-                    <div class="button-container-comparison">
-                        <button>Купити</button>
-                        <button>Видалити з порівняння</button>
-                    </div>
-                </div>
-                <div class="vl1"></div>
-                <div class="bike-card-comparison">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 4">
-                    <h3>Велосипед 5</h3>
-                    <div class="button-container-comparison">
-                        <button>Купити</button>
-                        <button>Видалити з порівняння</button>
-                    </div>
-                </div>
-            </div>
-        <div class="characteristics-container"> 
-        <table class="bike-comparison">
+    <?php 
+        if(!isset($_SESSION['comparison'])||$_SESSION['comp_count']==0){ echo "<h1 style='text-align: center;'>В порівнянні пусто</h1>";
+            echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a>";}
+        else{
+        echo "<div class='comparison-container'> <div class='bike-cards-container'> <div class='vl'></div>";
+        $i=false;
+        foreach($res as $bike){
+            foreach($_SESSION['comparison'] as $elem)
+            if($bike['id']==$elem['id']){
+            if($i==1){echo "<div class='vl1'></div>";}
+
+            $i=true;
+            echo "<div class='bike-card-comparison'> <img src='image/vibor_rami_11.jpg' alt='Велосипед 1'>  <h3>".$bike['Marka']." ".$bike['Model']."</h3> <div class='button-container-comparison'>";
+            echo "<a href='/comparison?id=".$bike['id']."'> <button>Купити</button> </a>";
+            echo "<a href='/comparison?id_c=".$bike['id']."'> <button>Видалити з порівняння</button> </a></div> </div>";}
+        } echo "</div>";
+    
+        echo "
+        <div class='characteristics-container'> 
+        <table class='bike-comparison'>
             <tr>
-                <th></th>
-                <th>Велосипед 1</th>
-                <th>Велосипед 2</th>
-                <th>Велосипед 3</th>
-                <th>Велосипед 4</th>
-                <th>Велосипед 5</th>
-            </tr>
-            <tr>
-                <td>Діаметр колеса</td>
-                <td>27,5"</td>
-                <td>27,5"</td>
-                <td>27,5"</td>
-                <td>27,5"</td>
-                <td>27,5"</td>
-            </tr>
-            <tr>
-                <td>Касета</td>
-                <td>Shimano HG41, 11-31, 8-шв</td>
-                <td>Shimano HG41, 11-31, 8-шв</td>
-                <td>Shimano HG41, 11-31, 8-шв</td>
-                <td>Shimano HG41, 11-31, 8-шв</td>
-                <td>Shimano HG41, 11-31, 8-шв</td>
-            </tr>
-            <tr>
-                <td>Ручки перемикання</td>
-                <td>Shimano Easy Fire EF505, 2x8</td>
-                <td>Shimano Easy Fire EF505, 2x8</td>
-                <td>Shimano Easy Fire EF505, 2x8</td>
-                <td>Shimano Easy Fire EF505, 2x8</td>
-                <td>Shimano Easy Fire EF505, 2x8</td>
-            </tr>
-            <tr>
-                <td>Обода</td>
-                <td>Cannondale, двостінні, 32 спиці</td>
-                <td>Cannondale, двостінні, 32 спиці</td>
-                <td>Cannondale, двостінні, 32 спиці</td>
-                <td>Cannondale, двостінні, 32 спиці</td>
-                <td>Cannondale, двостінні, 32 спиці</td>
-            </tr>
-            <tr>
-                <td>Педалі</td>
-                <td>Cannondale Urban Pedal</td>
-                <td>Cannondale Urban Pedal</td>
-                <td>Cannondale Urban Pedal</td>
-                <td>Cannondale Urban Pedal</td>
-                <td>Cannondale Urban Pedal</td>
-            </tr>
-            <tr>
-                <td>Передні гальма</td>
-                <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
-                <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
-                <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
-                <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
-                <td>Гідравлічний дисковий Shimano MT200, ротор RT26 160мм</td>
-            </tr>
-            <tr>
-                <td>Передній перемикач</td>
-                <td>Shimano Tourney, хомут 31.8</td>
-                <td>Shimano Tourney, хомут 31.8</td>
-                <td>Shimano Tourney, хомут 31.8</td>
-                <td>Shimano Tourney, хомут 31.8</td>
-                <td>Shimano Tourney, хомут 31.8</td>
-            </tr>
-            <tr>
-                <td>Покришки</td>
-                <td>WTB Byway, 650b x 40c</td>
-                <td>WTB Byway, 650b x 40c</td>
-                <td>WTB Byway, 650b x 40c</td>
-                <td>WTB Byway, 650b x 40c</td>
-                <td>WTB Byway, 650b x 40c</td>
-            </tr>
-            <tr>
-                <td>Рама</td>
-                <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
-                <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
-                <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
-                <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
-                <td>Алюміній SmartForm C2, інтегрований бампер, каретка BSA, рульова 1-1/8"</td>
-            </tr>
-            <tr>
-                <td>Рульова колонка</td>
-                <td>Напівінтегрована</td>
-                <td>Напівінтегрована</td>
-                <td>Напівінтегрована</td>
-                <td>Напівінтегрована</td>
-                <td>Напівінтегрована</td>
-            </tr>
-            <tr>
-                <td>Гальмівні ручки</td>
-                <td>Shimano MT200 гідравлічні</td>
-                <td>Shimano MT200 гідравлічні</td>
-                <td>Shimano MT200 гідравлічні</td>
-                <td>Shimano MT200 гідравлічні</td>
-                <td>Shimano MT200 гідравлічні</td>
-            </tr>
-            <tr>
-                <td>Кермо</td>
-                <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
-                <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
-                <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
-                <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
-                <td>Алюміній 6061 з подвійним баттінгом, підйом 25мм, ширина 680мм</td>
-            </tr>
-            <tr>
-                <td>Сідло</td>
-                <td>Cannondale Urban</td>
-                <td>Cannondale Urban</td>
-                <td>Cannondale Urban</td>
-                <td>Cannondale Urban</td>
-                <td>Cannondale Urban</td>
-            </tr>
-            <tr>
-                <td>Підсідельний штир</td>
-                <td>Алюміній, 31.6 x 350мм</td>
-                <td>Алюміній, 31.6 x 350мм</td>
-                <td>Алюміній, 31.6 x 350мм</td>
-                <td>Алюміній, 31.6 x 350мм</td>
-                <td>Алюміній, 31.6 x 350мм</td>
-            </tr>
-            <tr>
-                <td>Шатуни</td>
-                <td>Shimano, 46/30</td>
-                <td>Shimano, 46/30</td>
-                <td>Shimano, 46/30</td>
-                <td>Shimano, 46/30</td>
-                <td>Shimano, 46/30</td>
-            </tr>
-            <tr>
-                <td>Вилка</td>
-                <td>Lefty, тверда, шток 1-1/8"</td>
-                <td>Lefty, тверда, шток 1-1/8"</td>
-                <td>Lefty, тверда, шток 1-1/8"</td>
-                <td>Lefty, тверда, шток 1-1/8"</td>
-                <td>Lefty, тверда, шток 1-1/8"</td>
-            </tr>
-            <tr>
-                <td>Втулки</td>
-                <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
-                <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
-                <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
-                <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
-                <td>Lefty 50 – передня; Formula DC-1422 QR - ззаду</td>
-            </tr>
-            <tr>
-                <td>Винос</td>
-                <td>Алюміній 6061, 31.8, 60мм</td>
-                <td>Алюміній 6061, 31.8, 60мм</td>
-                <td>Алюміній 6061, 31.8, 60мм</td>
-                <td>Алюміній 6061, 31.8, 60мм</td>
-                <td>Алюміній 6061, 31.8, 60мм</td>
-            </tr>
-            <tr>
-                <td>Задні гальма</td>
-                <td>MTB linear pull</td>
-                <td>MTB linear pull</td>
-                <td>MTB linear pull</td>
-                <td>MTB linear pull</td>
-                <td>MTB linear pull</td>
-            </tr>
-            <tr>
-                <td>Задній перемикач</td>
-                <td>Shimano Tourney</td>
-                <td>Shimano Tourney</td>
-                <td>Shimano Tourney</td>
-                <td>Shimano Tourney</td>
-                <td>Shimano Tourney</td>
+                <th></th>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<th class='td_res'>".$bike['Marka']."</th>";}}
+                    $res=mysqli_query($db,'Select * from characteristics');
+                    
+                    echo "</tr><tr> <td>Діаметр колеса</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Wheel diameter']."</td>";}}
+                    
+
+                    echo "</tr><tr> <td>Касета</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Cassette']."</td>";}}
+                    
+                    echo "</tr><tr> <td>Ручки перемикання</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Shifters']."</td>";}}
+
+                    echo "</tr><tr> <td>Обода</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Rim']."</td>";}}
+
+                    echo "</tr><tr> <td>Педалі</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Pedals']."</td>";}}
+
+                    echo "</tr><tr> <td>Передні гальма</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Front brakes']."</td>";}}
+
+                    echo "</tr><tr> <td>Передній перемикач</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Front derailleur']."</td>";}}
+
+                    echo "</tr><tr> <td>Покришки</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Tires']."</td>";}}
+
+                    echo "</tr><tr> <td>Рама</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Frame']."</td>";}}
+
+                    echo "</tr><tr> <td>Рульова колонка</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Steering column']."</td>";}}
+
+                    echo "</tr><tr> <td>Гальмівні ручки</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Brake levers']."</td>";}}
+
+                    echo "</tr><tr> <td>Кермо</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Handlebar']."</td>";}}
+
+                    echo "</tr><tr> <td>Сідло</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Saddle']."</td>";}}
+
+                    echo "</tr><tr> <td>Підсідельний штир</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Seatpost']."</td>";}}
+
+                    echo "</tr><tr> <td>Шатуни</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Cranks']."</td>";}}
+
+                    echo "</tr><tr> <td>Вилка</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Fork']."</td>";}}
+
+                    echo "</tr><tr> <td>Втулки</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Bushes']."</td>";}}
+
+                    echo "</tr><tr> <td>Винос</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Bearing']."</td>";}}
+
+                    echo "</tr><tr> <td>Задні гальма</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Rear brakes']."</td>";}}
+
+                    echo "</tr><tr> <td>Задній перемикач</td>";
+                    foreach($res as $bike){foreach($_SESSION['comparison'] as $elem)
+                    if($bike['id']==$elem['id']){echo "<td class='td_res'>".$bike['Rear derailleur']."</td>";}}
+
+    
+    }
+
+    ?>
             </tr>
         </table>
         </div>

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/atb.png" type="image/png">
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
     <title>Про нас</title>
 </head>
 <body>
