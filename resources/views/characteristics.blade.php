@@ -160,46 +160,19 @@ if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location
         </div>
         <div class="offers">
             <h3>Інші пропозиції:</h3>
-            <div class="bike-card-offers">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
+            <?php 
+            $off1=mysqli_query($db,"SELECT * FROM bicucles where id=$_GET[id]");
+            $r=mysqli_fetch_assoc($off1);
+            $off=mysqli_query($db,"SELECT * FROM bicucles where (Type='{$r['Type']}' or Marka='{$r['Marka']}' or Color='{$r['Color']}') and  id!={$r['id']}");
+            foreach($off as $bike){    
+            echo "<div class='bike-card-offers'>
+                <a href='characteristics?id=".$bike['id']."'>
+                    <img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg' alt='Велосипед 1'>
                 </a>
-                <h2>Велосипед 1</h2>
-                <h4>опис</h4>
-                <p>Ціна: $500</p>
-            </div>
-            <div class="bike-card-offers">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <h2>Велосипед 1</h2>
-                <h4>опис</h4>
-                <p>Ціна: $500</p>
-            </div>
-            <div class="bike-card-offers">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <h2>Велосипед 1</h2>
-                <h4>опис</h4>
-                <p>Ціна: $500</p>
-            </div>
-            <div class="bike-card-offers">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <h2>Велосипед 1</h2>
-                <h4>опис</h4>
-                <p>Ціна: $500</p>
-            </div>
-            <div class="bike-card-offers">
-                <a href="characteristics.html">
-                    <img src="image/vibor_rami_11.jpg" alt="Велосипед 1">
-                </a>
-                <h2>Велосипед 1</h2>
-                <h4>опис</h4>
-                <p>Ціна: $500</p>
-            </div>
+                <h2>".$bike['Marka'].' '.$bike['Model']."</h2>
+                <p>Ціна: ".$bike['Price']."$</p>
+            </div>";}
+            ?>
         </div>
     </main>
     <footer>

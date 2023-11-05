@@ -108,7 +108,7 @@ if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location
             echo "<div class='bike-card' data-brand=".$bike['Marka']." data-bike-type=".$bike['Type']." data-wheel-size=".$bike['Tires']." data-brake-type=".$bike['Type_of_rear_bushing']." data-color=".$bike['Color'].">";
             echo "<div class='bike-info'>";
             echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
-            echo "  <p>Ціна:".$bike['Price']."$</p> </div>"; 
+            echo "  <p>Ціна: ".$bike['Price']."$</p> </div>"; 
             echo " <a href='/characteristics?id=".$bike['id']."'>";
             echo "<img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg' alt='Велосипед 1'> </a> <div class='button-container-index'><a href='/?id=".$bike['id']."'> <button>Купити</button> </a>";
             echo "<a href='/?id_c=".$bike['id']."'>";

@@ -17,7 +17,7 @@
             addToCart($_GET['id']);    
             echo "<script>location.href='/basket';</script>";
         }
-        header("Location: koshyk.php");
+
     }
         $query="SELECT * from bicucles";
         $db_res=mysqli_query($db, $query);
@@ -74,10 +74,13 @@
          @csrf
         <?php
             if(isset($_SESSION['cart'])){
+                $total=0;
                 foreach($_SESSION['cart'] as $elem){
                     $query = "SELECT * FROM bicucles WHERE ID = " . $elem['id'];
                     $res=mysqli_query($db, $query);
                     $bike=mysqli_fetch_assoc($res);
+                    $price=$elem['quantity']*$bike['Price'];
+                    $total+=$price;
                     echo "<div class='bike-card'>";
                     echo " <a href='/characteristics?id=".$bike['id']."'>";
                     echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a>";
@@ -109,6 +112,7 @@
    
             <?php  
                 if(isset($_SESSION['cart']))
+                    echo "<center>Сума: $total$</center>";
                     echo "<div class='button-container'> <a href='/order'> <button>Оформити замовлення</button> </a>";
                     echo "<form style='margin: 0' method='POST'>";?>
                     {{method_field('post')}} 
