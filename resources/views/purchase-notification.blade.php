@@ -1,3 +1,6 @@
+<?php
+        include(public_path().'\func.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,7 @@
     </nav>
     <main class="main">
         <div class="about-us">
-            Ваше замовлення опрацьоване і занесене під номером 980<br>
+            Ваше замовлення опрацьоване і занесене під номером <?php echo $_SESSION['lastInsertedId'] ; ?><br>
             До вас зателефонують в межах робочого часу
         </div>
         <div class="button-container">

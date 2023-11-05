@@ -1,7 +1,7 @@
 .bike-cards-container {
     display: flex;
     flex-direction: row;
-    overflow-x: auto;
+    
 }
 
 .bike-card-comparison {
