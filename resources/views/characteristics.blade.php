@@ -47,7 +47,7 @@ if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location
             echo "<div class='bike-info'>";
             echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
             echo "<p>Ціна: ".$bike['Price']."$</p> </div>"; 
-            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'>  <div class='button-container-index'> ";
+            echo "<img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg' alt='Велосипед 1'>  <div class='button-container-index'> ";
             echo "<div class='button-container-index'>";
             echo "<form style='margin: 0' method='POST'>";?>
             {{method_field('post')}} 

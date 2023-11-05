@@ -110,7 +110,7 @@ if(isset($_GET['id_c'])){ addToComparison($_GET['id_c']); echo "<script>location
             echo "<h2>".$bike['Marka'].' '.$bike['Model']."</h2>";
             echo "  <p>Ціна:".$bike['Price']."$</p> </div>"; 
             echo " <a href='/characteristics?id=".$bike['id']."'>";
-            echo "<img src='image/vibor_rami_11.jpg' alt='Велосипед 1'> </a> <div class='button-container-index'><a href='/?id=".$bike['id']."'> <button>Купити</button> </a>";
+            echo "<img src='image/velo/".$bike['Marka'].' '.$bike['Model'].".jpg' alt='Велосипед 1'> </a> <div class='button-container-index'><a href='/?id=".$bike['id']."'> <button>Купити</button> </a>";
             echo "<a href='/?id_c=".$bike['id']."'>";
             $i=false;
             foreach($_SESSION['comparison'] as $res){
