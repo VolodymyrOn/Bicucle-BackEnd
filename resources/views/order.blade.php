@@ -18,7 +18,7 @@
                 }
                 $order=$order."  ".$bikedb." (" . $bike['id'] . "): " . $bike['quantity'] . "; ";
             }
-
+            $_SESSION['Order']=$order;
             unset($_SESSION['cart']);
             $_SESSION['Basket']=0;
 

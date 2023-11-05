@@ -17,16 +17,19 @@
     </header>
     <nav>
         <div class="nav-center">
-            <a href="index.html">Каталог</a>
-            <a href="about-us.html">Про нас</a>
-            <a href="comparison.html">Порівняння</a>
+            <a href="/">Каталог</a>
+            <a href="/about-us">Про нас</a>
+            <a href="/comparison">Порівняння</a>
         </div>
     </nav>
     <main class="main">
         <div class="about-us">
             Ваше замовлення опрацьоване і занесене під номером <?php echo $_SESSION['lastInsertedId'] ; ?><br>
-            До вас зателефонують в межах робочого часу
+            До вас зателефонують в межах робочого часу.<br><br>
+            <?php echo $_SESSION['Order'];?>
+
         </div>
+
         <div class="button-container">
             <a href="/">
                 <button>Повернутись до каталогу</button>
