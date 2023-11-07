@@ -26,7 +26,6 @@
         <div class="about-us">
             Ваше замовлення опрацьоване і занесене під номером <?php echo $_SESSION['lastInsertedId'] ; ?><br>
             До вас зателефонують в межах робочого часу.<br><br>
-            <?php echo $_SESSION['Order'];?>
 
         </div>
 

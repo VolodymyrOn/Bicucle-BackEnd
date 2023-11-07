@@ -88,11 +88,11 @@
 
             }
             else{
-                echo "<h1 style='text-align: center;'>Кошик порожній</h1>";
-                echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a>";
+                echo "<div style='margin: auto;'><h1 style='text-align: center;'>Кошик порожній</h1></div>";
+                echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a></div>";
             } 
                 if(isset($_SESSION['cart'])){
-                    echo "<center>Сума: $total$</center>";
+                    echo "<div style='margin: auto;'><h1>Сума: $total$</h1></div>";
                     $_SESSION['Tot_p']=$total;
                     echo "<div class='button-container'> <a href='/order'> <button>Оформити замовлення</button> </a>";
                     echo "<form style='margin: 0' method='POST'>";}?>

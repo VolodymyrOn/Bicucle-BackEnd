@@ -6,9 +6,14 @@
 
 	$db=mysqli_connect($host, $username, $password, $dbname);
   
-session_start();
+  if(!isset($_SESSION)) 
+  { 
+      session_start(); 
+  } 
 if(isset($_SESSION['Basket'])){}else{$_SESSION['Basket']=0;}
 if(isset( $_SESSION['comp_count'])){}else{ $_SESSION['comp_count']=0;}
+if (!isset($_SESSION['cart'])) { $_SESSION['comparison'] = array();}
+
 function addToCart($Id) {
    if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();

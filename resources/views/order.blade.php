@@ -29,7 +29,7 @@
             unset($POST);
             echo "<script>location.href='/purchase-notification';</script>";
 
-        }
+        } 
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,28 +61,28 @@
             {{method_field('post')}} 
             @csrf
                 <label for="lastname">Прізвище:</label>
-                <input type="text" id="lastname" name="lastname" required placeholder="Введіть прізвище">
-    
+                <input type="text" id="lastname" name="lastname" required placeholder="Введіть прізвище" pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s\-]+">
+            
                 <label for="firstname">Ім’я:</label>
-                <input type="text" id="firstname" name="firstname" required placeholder="Введіть ім’я">
-    
+                <input type="text" id="firstname" name="firstname" required placeholder="Введіть ім’я" pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s\-]+">
+            
                 <label for="middlename">По батькові:</label>
-                <input type="text" id="middlename" name="middlename" required placeholder="Введіть по батькові">
-    
+                <input type="text" id="middlename" name="middlename" required placeholder="Введіть по батькові" pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s\-]+">
+            
                 <label for="phone">Номер телефону:</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Введіть номер"> 
-    
+                <input type="tel" id="phone" name="phone" required placeholder="Введіть номер" pattern="\+38[0-9]{10}" value="+380">
+            
                 <label for="city">Населений пункт:</label>
-                <input type="text" id="city" name="city" required placeholder="Введіть населений пункт">
-    
+                <input type="text" id="city" name="city" required placeholder="Введіть населений пункт" pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s\-]+">
+            
                 <label for="street">Вулиця:</label>
-                <input type="text" id="street" name="street" required placeholder="Введіть вулицю">
-    
+                <input type="text" id="street" name="street" required placeholder="Введіть вулицю" pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s\-]+">
+            
                 <label for="house">Будинок:</label>
                 <input type="text" id="house" name="house" required placeholder="Введіть номер будинку/квартиру">
-    
+            
                 <label for="payment-method">Спосіб оплати:</label>
-                <select id="payment-method" name="payment-method">
+                <select id="payment-method" name="payment-method" required>
                     <option value="card">Кредитною карткою</option>
                     <option value="cash">Готівкою при отриманні</option>
                 </select>

@@ -12,3 +12,19 @@ function addToComparison() {
 
     showNotification("Товар додано до порівняння");
 }
+
+var addToCompareButtons = document.querySelectorAll('.bike-card button:nth-child(2)');
+
+addToCompareButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        var bikeCard = this.closest('.bike-card');
+            
+        var bikeId = bikeCard.getAttribute('data-id');
+
+        if (this.textContent === 'До порівняння') {
+            this.textContent = 'Видалити з порівняння';
+        } else {
+            this.textContent = 'До порівняння';
+        }
+    });
+});

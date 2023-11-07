@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\order_admin;
+
 
 Route::get('/', function () {
     return view('index');
@@ -35,5 +38,11 @@ Route::any('/order', function () {
 });
 
 Route::get('/purchase-notification', function () {
+    return view('purchase-notification');
+});
+
+Route::get('/purchase-notification', function () {
+    Mail::to('volodymyr.onyshchuk@kpk-lp.com.ua')
+            ->send(new order_admin());
     return view('purchase-notification');
 });
