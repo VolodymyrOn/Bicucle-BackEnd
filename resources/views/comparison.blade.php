@@ -117,7 +117,7 @@ footer {
     </div>
     <main class="main">
     <?php 
-        if(!isset($_SESSION['comparison'])||$_SESSION['comp_count']==0){ echo "<h1 style='text-align: center;'>В порівнянні пусто</h1>";
+        if(!isset($_SESSION['comparison'])||$_SESSION['comp_count']==0){ echo "<div style='margin: auto;'><h1 style='text-align: center;'>В порівнянні пусто</h1></div>";
             echo "<div class='button-container'> <a href='/'> <button>Головна</button> </a>";}
         else{
         echo "<div class='comparison-container'> <div class='bike-cards-container'> <div class='vl'></div>";
