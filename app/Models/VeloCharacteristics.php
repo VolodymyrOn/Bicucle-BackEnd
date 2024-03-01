@@ -9,4 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 class VeloCharacteristics extends Model
 {
     protected $table = 'velo_characteristics';
+    
 }
