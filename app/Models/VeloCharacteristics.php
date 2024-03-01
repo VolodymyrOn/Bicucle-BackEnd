@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Velo extends Model
+class VeloCharacteristics extends Model
 {
-    use HasFactory;
-    protected $table = 'velos';
+    protected $table = 'velo_characteristics';
 }
