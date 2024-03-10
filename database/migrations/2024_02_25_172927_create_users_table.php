@@ -29,7 +29,7 @@ return new class extends Migration
 
         Schema::create('users_profile', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('site_user_id')->constrained();
             $table->string('name');            
             $table->string('surname');
             $table->string('patronimic');
