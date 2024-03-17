@@ -9,5 +9,21 @@ use Illuminate\Database\Eloquent\Model;
 class Velo extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'Marka', 
+        'Model', 
+        'Color', 
+        'Price', 
+        'Count', 
+        'Wheel_size', 
+        'Rama_size', 
+        'Class', 
+        'Type_of_brake', 
+        'Rama_material', 
+        'Count_of_speeds', 
+        'Photo',
+    ];
+    
     protected $table = 'velos';
 }
