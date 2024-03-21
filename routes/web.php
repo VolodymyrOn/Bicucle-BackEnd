@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('testadmin');
 });
+
+Route::get('/velo', function () {
+    return view('testphoto');
+});
+

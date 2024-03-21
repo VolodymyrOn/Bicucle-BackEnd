@@ -44,6 +44,7 @@ return new class extends Migration
             $table->text('Zadniy_perem');
             $table->text('Ruchky_perem');
             $table->text('Brake');
+            $table->text('Brake_ruchky');
             $table->text('Oboda');
             $table->text('Vtulky');
             $table->text('Kermo');

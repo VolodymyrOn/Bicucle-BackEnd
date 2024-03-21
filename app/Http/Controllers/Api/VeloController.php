@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Velo; 
 use App\Models\VeloCharacteristics; 
-
+use Illuminate\Support\Facades\Storage;
 
 class VeloController extends Controller
 {
@@ -20,7 +20,8 @@ class VeloController extends Controller
         $velos=Velo::all();
         $characteristics=VeloCharacteristics::all();
         $data= [
-            'velos' => $velos
+            'velos' => $velos,
+            'characteristics' => $characteristics
         ];
         $json = json_encode($data, JSON_UNESCAPED_UNICODE);
         return $json;
@@ -39,7 +40,23 @@ class VeloController extends Controller
      */
     public function show(string $id)
     {
-        return Velo::find($id);
+
+        $velos = Velo::findOrFail($id);
+        $characteristics = $velos->characteristic();
+
+        $photoUrl = null;
+        if (!empty($velos->Photo)) {
+            $photoPath = Storage::url($velos->Photo); 
+            $photoUrl = asset($photoPath);
+        }
+ 
+        $data = [
+            'velos' => $velos,
+            'characteristics' => $characteristics,
+            'photo_url' => $photoUrl,
+        ];
+
+        return response()->json($data);
     }
 
     /**

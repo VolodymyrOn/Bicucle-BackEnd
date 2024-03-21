@@ -15,7 +15,9 @@ Route::get('/velo', [VeloController::class, 'index']);
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/login', [UserController::class, 'login']);
 
-
+Route::prefix('velo')->group(['middleware' => 'cors'] ,function () {
+    Route::get('/velos/{id}', [VeloController::class, 'show']);
+});
 
 
 Route::prefix('admin')->group(function () {

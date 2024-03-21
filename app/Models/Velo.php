@@ -26,4 +26,9 @@ class Velo extends Model
     ];
     
     protected $table = 'velos';
+
+    public function characteristic()
+    {
+        return $this->hasOne(VeloCharacteristics::class, 'Velo_id');
+    }
 }

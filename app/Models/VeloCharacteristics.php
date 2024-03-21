@@ -24,6 +24,7 @@ protected $fillable = [
     'Zadniy_perem',
     'Ruchky_perem',
     'Brake',
+    'Brake_ruchky',
     'Oboda',
     'Vtulky',
     'Kermo',

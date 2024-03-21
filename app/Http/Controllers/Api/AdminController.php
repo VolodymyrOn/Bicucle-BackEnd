@@ -76,6 +76,7 @@ class AdminController extends Controller
             'Zadniy_perem' => $request->Zadniy_perem,
             'Ruchky_perem' => $request->Ruchky_perem,
             'Brake' => $request->Brake,
+            'Brake_ruchky' => $request->Brake_ruchky,
             'Oboda' => $request->Oboda,
             'Vtulky' => $request->Vtulky,
             'Kermo' => $request->Kermo,

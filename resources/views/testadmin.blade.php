@@ -82,6 +82,9 @@
 <label for="Brake">Brake:</label><br>
 <input type="text" id="Brake" name="Brake"><br>
 
+<label for="Brake_ruchky">Brake ruchky:</label><br>
+<input type="text" id="Brake_ruchky" name="Brake_ruchky"><br>
+
 <label for="Oboda">Oboda:</label><br>
 <input type="text" id="Oboda" name="Oboda"><br>
 
