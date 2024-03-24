@@ -21,7 +21,6 @@ class VeloController extends Controller
         $characteristics=VeloCharacteristics::all();
         $data= [
             'velos' => $velos,
-            'characteristics' => $characteristics
         ];
         $json = json_encode($data, JSON_UNESCAPED_UNICODE);
         return $json;
@@ -43,17 +42,19 @@ class VeloController extends Controller
 
         $velos = Velo::findOrFail($id);
         $characteristics = $velos->characteristic();
-
+        $class=$velos->first()->Class;
         $photoUrl = null;
         if (!empty($velos->Photo)) {
             $photoPath = Storage::url($velos->Photo); 
             $photoUrl = asset($photoPath);
         }
+        $recomended_velos = Velo::where('Class', $class)->get();
  
         $data = [
             'velos' => $velos,
             'characteristics' => $characteristics,
             'photo_url' => $photoUrl,
+            'recomended_velos' => $recomended_velos
         ];
 
         return response()->json($data);

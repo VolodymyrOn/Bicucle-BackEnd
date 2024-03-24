@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\AdminController;
 
 
 Route::get('/velo', [VeloController::class, 'index']);
+Route::get('/velo/{id}', [VeloController::class, 'show']);
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/login', [UserController::class, 'login']);
 
