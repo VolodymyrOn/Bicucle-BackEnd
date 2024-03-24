@@ -7,15 +7,13 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AdminController;
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 Route::get('/velo', [VeloController::class, 'index']);
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/login', [UserController::class, 'login']);
 
-Route::prefix('velo')->group(['middleware' => 'cors'] ,function () {
+Route::prefix('velo')->group(function () {
     Route::get('/velos/{id}', [VeloController::class, 'show']);
 });
 
